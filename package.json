@@ -18,6 +18,7 @@
     "url": "https://github.com/samrunyan5/UNIV_FitnessTrackr_React_Starter/issues"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
