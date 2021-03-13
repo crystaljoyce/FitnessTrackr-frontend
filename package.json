@@ -1,0 +1,26 @@
+{
+  "name": "UNIV_FitnessTrackr_React_Starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samrunyan5/UNIV_FitnessTrackr_React_Starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samrunyan5/UNIV_FitnessTrackr_React_Starter/issues"
+  },
+  "homepage": "https://github.com/samrunyan5/UNIV_FitnessTrackr_React_Starter#readme",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.3"
+  }
+}
