@@ -6,7 +6,7 @@ import {
 
 const AddActivity = ({}) => { 
 
-
+console.log('here I am making changes')
     
 }
 
