@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom';
 
 import {
-    AccountForm
+    AccountForm,
+    Home
 } from './components';
 
 const URL = 'http://localhost:3000/api/'
@@ -38,7 +39,7 @@ const App = () => {
         localStorage.clear()
         history.push('/')
     }
-    
+
     return (<>
         <h1>Fitness Trackr</h1>
         <nav>
@@ -51,6 +52,9 @@ const App = () => {
 
         <div>hey it's me...fitness trackr</div>
 
+        <Route exact path='/'>
+            <Home user={user} />
+        </Route>
         <Route path='/login'>
             <AccountForm type={'login'} setToken={setToken} setUser={setUser} />
         </Route>
