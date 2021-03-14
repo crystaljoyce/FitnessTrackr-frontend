@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom';
 
 import {
-    AccountForm
+    AccountForm,
+    Routines
 } from './components';
 
 const App = () => {
