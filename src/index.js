@@ -13,6 +13,7 @@ const URL = 'http://localhost:3000/api/'
 const App = () => {
     const [user, setUser] = useState({username: ''});
     const [token, setToken] = useState('');
+    const [routine, setRoutine] = ([]) //this may need to be changed
     const history = useHistory();
 
     useEffect( () => {
@@ -46,6 +47,7 @@ const App = () => {
         <nav>
             <div className='nav-links'>
             <Link to='/'>HOME</Link>
+            <Link to='/routines'>ROUTINES</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
             </div>
@@ -61,6 +63,9 @@ const App = () => {
         </Route>
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
+        </Route>
+        <Route>
+            <Routines token={token} setRoutine={setRoutine} />
         </Route>
 
     </>)
