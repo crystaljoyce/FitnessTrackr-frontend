@@ -66,7 +66,7 @@ const App = () => {
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
         </Route>
-        <Route>
+        <Route path='/routines'>
             <Routines token={token} setRoutine={setRoutine} />
         </Route>
         <Route path="/Activity">
