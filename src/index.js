@@ -2,16 +2,18 @@ import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom';
 
-import {
+import { 
     AccountForm,
+    Activity,
     Home
-} from './components';
+} from './components'
 
 const URL = 'http://localhost:3000/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});
     const [token, setToken] = useState('');
+    const [ activities, setActivities ] = useState(null)
     const history = useHistory();
 
     useEffect( () => {
@@ -60,6 +62,9 @@ const App = () => {
         </Route>
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
+        </Route>
+        <Route path="/Activity">
+            <Activity setActivities={ setActivities } />
         </Route>
 
     </>)
