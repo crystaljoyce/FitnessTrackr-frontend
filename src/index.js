@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom';
 
-import {
+import { 
     AccountForm,
     Routines,
+    Activity,
     Home
-} from './components';
+} from './components'
 
 const URL = 'http://localhost:3000/api/'
 
@@ -14,6 +15,7 @@ const App = () => {
     const [user, setUser] = useState({username: ''});
     const [token, setToken] = useState('');
     const [routine, setRoutine] = ([]) //this may need to be changed
+    const [ activities, setActivities ] = useState(null)
     const history = useHistory();
 
     useEffect( () => {
@@ -66,6 +68,9 @@ const App = () => {
         </Route>
         <Route>
             <Routines token={token} setRoutine={setRoutine} />
+        </Route>
+        <Route path="/Activity">
+            <Activity setActivities={ setActivities } />
         </Route>
 
     </>)
