@@ -9,7 +9,7 @@ import {
     AddNewActivity
 } from './components';
 
-const URL = 'http://fitnesstrac-kr.herokuapp.com/api/'
+const URL = 'http://localhost:3000/api'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});
@@ -50,6 +50,7 @@ const App = () => {
             <Link to='/'>HOME</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
+            <Link to='/activity'>Activity</Link>
             </div>
         </nav>
 

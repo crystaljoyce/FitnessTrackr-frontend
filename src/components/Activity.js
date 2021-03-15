@@ -7,7 +7,7 @@ const Activity = (props) => {
     const { token, activities, setActivities } = props; 
 
     const fetchActivity = async () => {
-        const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
+        const response = await fetch('http://localhost:3000/api/activities', {
             method: 'GET',
             headers: {
             'Content-Type': 'Application/json',
@@ -25,10 +25,11 @@ const Activity = (props) => {
     },[]); 
     
     const options = activities.map((activity, index) => { 
-        return activity.name 
+         return activity.name
     })
     const defaultOption = options[0]
     return <>
+    <h4>Or select from an existing activity below: </h4>
     { <div className="activityDropdown">
         <Dropdown options={options} value={defaultOption} placeholder="Select an activity"/>
         </div>
