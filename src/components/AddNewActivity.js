@@ -4,16 +4,15 @@ import Dropdown from 'react-dropdown';
 const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    // const { token } = props;
     console.log('token: ',token)
-    // const BASE_URL = 'http://localhost:3000/api'
+    const BASE_URL = 'http://localhost:3000/api'
 
     const handleSubmit = async (event) => { 
         event.preventDefault(); 
         
         const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
             method: 'POST',
-          headers: {
+            headers: {
             'Content-type': 'Application/json',
             'Authorization': `Bearer ${ token }`,
           },
