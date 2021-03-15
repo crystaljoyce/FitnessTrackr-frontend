@@ -7,7 +7,7 @@ const Activity = (props) => {
     const { token, activities, setActivities } = props; 
 
     const fetchActivity = async () => {
-        const response = await fetch(`${BASE_URL}/activities`, {
+        const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
             method: 'GET',
             headers: {
             'Content-Type': 'Application/json',

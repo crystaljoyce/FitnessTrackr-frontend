@@ -4,8 +4,10 @@ import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom
 
 import {
     AccountForm,
-    Home
+    Home,
+    Activity
 } from './components';
+import AddNewActivity from './components/AddNewActivity';
 
 const URL = 'http://localhost:3000/api/'
 
@@ -63,7 +65,13 @@ const App = () => {
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
         </Route>
         <Route path='/activity'>
-            <AccountForm type={'activities'} setActivities={setActivities} activities={activities} />
+            <AddNewActivity
+            activities={activities}
+            />
+            <Activity 
+            type={'activity'} 
+            setActivities={setActivities} 
+            activities={activities} />
         </Route>
 
     </>)
