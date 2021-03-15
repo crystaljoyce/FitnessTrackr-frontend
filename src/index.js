@@ -11,6 +11,7 @@ const URL = 'http://localhost:3000/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});
+    const [ activities, setActivities ] = useState([]);
     const [token, setToken] = useState('');
     const history = useHistory();
 
@@ -60,6 +61,9 @@ const App = () => {
         </Route>
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
+        </Route>
+        <Route path='/activity'>
+            <AccountForm type={'activities'} setActivities={setActivities} activities={activities} />
         </Route>
 
     </>)
