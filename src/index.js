@@ -5,11 +5,11 @@ import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom
 import {
     AccountForm,
     Home,
-    Activity
+    Activity,
+    AddNewActivity
 } from './components';
-import AddNewActivity from './components/AddNewActivity';
 
-const URL = 'http://localhost:3000/api/'
+const URL = 'http://fitnesstrac-kr.herokuapp.com/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});
@@ -33,7 +33,7 @@ const App = () => {
             captureToken()
         }
     }, [token])
-
+    console.log('token in index.js ', token)
 
     const handleLogout = (event) => {
         event.preventDefault()
@@ -67,6 +67,7 @@ const App = () => {
         <Route path='/activity'>
             <AddNewActivity
             activities={activities}
+            token={token}
             />
             <Activity 
             type={'activity'} 

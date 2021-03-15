@@ -1,10 +1,11 @@
 import React, { useState , useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 
-const AddNewActivity = ({ token }) => {
+const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-
+    // const { token } = props;
+    console.log('token: ',token)
     // const BASE_URL = 'http://localhost:3000/api'
 
     const handleSubmit = async (event) => { 
