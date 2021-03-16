@@ -7,16 +7,17 @@ import {
     Routines,
     Activity,
     Home,
-    MyRoutines
+    MyRoutines,
+    AddNewActivity,
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});
+    const [ activities, setActivities ] = useState([]);
     const [token, setToken] = useState('');
     const [routine, setRoutine] = useState({});
-    const [ activities, setActivities ] = useState(null);
 
     const history = useHistory();
 
@@ -36,7 +37,7 @@ const App = () => {
             captureToken()
         }
     }, [token])
-
+    console.log('token in index.js ', token)
 
     const handleLogout = (event) => {
         event.preventDefault()
@@ -54,7 +55,8 @@ const App = () => {
             <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
             <Link to='/routines'>ROUTINES</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
-            <Link to='/login' className={!user.username ? '' : 'loggedOut'}>LOGIN</Link>
+            <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
+            <Link to='/activity'>Activity</Link>
             </div>
         </nav>
 
@@ -73,7 +75,10 @@ const App = () => {
             <Routines />
         </Route>
         <Route path="/Activity">
-            <Activity setActivities={ setActivities } />
+            {token ? 
+            <AddNewActivity token={token} /> : 
+                '' }
+            <Activity token={token} setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
             <MyRoutines token={token} user={user} />

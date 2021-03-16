@@ -24,12 +24,24 @@ const MyRoutines = ({token, user}) => {
         });
         const data = await response.json();
         setMyRoutines(data);
-    }, [])
+    }, []);
+
+    const handleDelete = async (event) => {
+        event.preventDefault();
+
+        const response = await fetch(`${URL}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        const data = await response.json();
+    };
 
     console.log('myRoutines: ', myRoutines)
 
     if (token) {
-        
         return (<div className='my-routines'>
             <h2>MY ROUTINES</h2>
 
@@ -54,7 +66,7 @@ const MyRoutines = ({token, user}) => {
                             </div>
                         })}
                         <button>EDIT</button>
-                        <button>DELETE</button>
+                        <button id='danger-button' onClick={handleDelete}>DELETE</button>
                     </div>
                 </div>)
             })}
