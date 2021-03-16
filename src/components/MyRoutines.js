@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
 import RoutineForm from './RoutineForm';
 
-//create new routine
 //edit routine
 //delete routine
-//show list of routines
+//show list of routines -- need to update list once you click add new routine
 
 const MyRoutines = ({token, user}) => {
     const [myRoutines, setMyRoutines] = useState([]);
