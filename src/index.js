@@ -2,12 +2,14 @@ import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom';
 
-import {
+import { 
     AccountForm,
-    Home,
+    Routines,
     Activity,
-    AddNewActivity
-} from './components';
+    Home,
+    MyRoutines,
+    AddNewActivity,
+} from './components'
 
 const URL = 'http://localhost:3000/api/'
 
@@ -15,6 +17,9 @@ const App = () => {
     const [user, setUser] = useState({username: ''});
     const [ activities, setActivities ] = useState([]);
     const [token, setToken] = useState('');
+    const [routine, setRoutine] = useState({});
+    const [ activities, setActivities ] = useState(null);
+
     const history = useHistory();
 
     useEffect( () => {
@@ -48,9 +53,15 @@ const App = () => {
         <nav>
             <div className='nav-links'>
             <Link to='/'>HOME</Link>
+            <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
+            <Link to='/routines'>ROUTINES</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
+<<<<<<< HEAD
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
             <Link to='/activity'>Activity</Link>
+=======
+            <Link to='/login' className={!user.username ? '' : 'loggedOut'}>LOGIN</Link>
+>>>>>>> main
             </div>
         </nav>
 
@@ -65,6 +76,7 @@ const App = () => {
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
         </Route>
+<<<<<<< HEAD
         <Route path='/activity'>
             <AddNewActivity
             activities={activities}
@@ -74,6 +86,16 @@ const App = () => {
             type={'activity'} 
             setActivities={setActivities} 
             activities={activities} />
+=======
+        <Route path='/routines'>
+            <Routines />
+        </Route>
+        <Route path="/Activity">
+            <Activity setActivities={ setActivities } />
+        </Route>
+        <Route path='/myroutines'>
+            <MyRoutines token={token} user={user} />
+>>>>>>> main
         </Route>
 
     </>)

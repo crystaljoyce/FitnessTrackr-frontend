@@ -4,10 +4,11 @@ import Dropdown from 'react-dropdown';
 const BASE_URL = 'http://localhost:3000/api'
 
 const Activity = (props) => { 
-    const { token, activities, setActivities } = props; 
+    const [ activities, setActivities ] = useState([]);
+    const { token } = props; 
 
     const fetchActivity = async () => {
-        const response = await fetch('http://localhost:3000/api/activities', {
+        const response = await fetch(`${BASE_URL}/activities`, {
             method: 'GET',
             headers: {
             'Content-Type': 'Application/json',
@@ -25,11 +26,10 @@ const Activity = (props) => {
     },[]); 
     
     const options = activities.map((activity, index) => { 
-         return activity.name
+        return activity.name 
     })
     const defaultOption = options[0]
     return <>
-    <h4>Or select from an existing activity below: </h4>
     { <div className="activityDropdown">
         <Dropdown options={options} value={defaultOption} placeholder="Select an activity"/>
         </div>
