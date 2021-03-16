@@ -36,6 +36,7 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
 
     console.log('NICE')
 
+    if (token) {
     return (<div className='routine-form'>
         <h3>CREATE A NEW ROUTINE</h3>
         <form onSubmit={handleSubmit}>
@@ -52,7 +53,9 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
             </div>
             <button type='submit'>ADD NEW ROUTINE</button>
         </form>
-    </div>)
+    </div>) } else {
+        return <Redirect to='/' />
+    }
 }
 
 export default RoutineForm;
