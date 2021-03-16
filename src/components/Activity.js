@@ -1,13 +1,15 @@
 import React, { useState , useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 
-const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL = 'http://localhost:3000/api/'
 
-const Activity = ({props}) => { 
-    const { token, activities, setActivities } = props; 
-
+const Activity = (props) => { 
+    // const { token, activities, setActivities } = props; 
+    const [ activities, setActivities ] = useState([]);
+    const { token } = props; 
+    console.log(token)
     const fetchActivity = async () => {
-        const response = await fetch(`${BASE_URL}/activities`, {
+        const response = await fetch('http://localhost:3000/api/activities', {
             method: 'GET',
             headers: {
             'Content-Type': 'Application/json',
@@ -18,12 +20,11 @@ const Activity = ({props}) => {
         console.log('activity data: ',data)
         setActivities(data)
     }
-
     useEffect(() => {
         fetchActivity();
         console.log(activities)
     },[]); 
-    
+
     const options = activities.map((activity, index) => { 
         return activity.name 
     })

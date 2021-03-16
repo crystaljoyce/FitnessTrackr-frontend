@@ -75,8 +75,10 @@ const App = () => {
             <Routines />
         </Route>
         <Route path="/Activity">
-            <AddNewActivity /> 
-            <Activity setActivities={ setActivities } />
+            {token ? 
+            <AddNewActivity token={token} /> : 
+                '' }
+            <Activity token={token} setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
             <MyRoutines token={token} user={user} />
