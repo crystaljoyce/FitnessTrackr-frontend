@@ -9,7 +9,7 @@ import {
     AddNewActivity
 } from './components';
 
-const URL = 'http://localhost:3000/api'
+const URL = 'http://localhost:3000/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});

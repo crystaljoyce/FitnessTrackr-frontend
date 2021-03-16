@@ -5,7 +5,7 @@ const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     console.log('token: ',token)
-    const BASE_URL = 'http://localhost:3000/api'
+    const BASE_URL = 'http://localhost:3000/api/'
 
     const handleSubmit = async (event) => { 
         event.preventDefault(); 
@@ -22,6 +22,7 @@ const AddNewActivity = ( {token} ) => {
             })
         })
         const data = await response.json(); 
+        console.log(response)
         console.log('data:  ', data)
         setName('')
         setDescription('')

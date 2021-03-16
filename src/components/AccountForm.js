@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 
-const URL = 'http://fitnesstrac-kr.herokuapp.com/api/'
+const URL = 'http://localhost:3000/api/'
 
 const AccountForm = ({type, setToken, setUser}) => {
     const [username, setUsername] = useState('');
