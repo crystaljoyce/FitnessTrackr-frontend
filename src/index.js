@@ -4,8 +4,10 @@ import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom
 
 import { 
     AccountForm,
+    Routines,
     Activity,
-    Home
+    Home,
+    MyRoutines
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
@@ -13,7 +15,9 @@ const URL = 'http://localhost:3000/api/'
 const App = () => {
     const [user, setUser] = useState({username: ''});
     const [token, setToken] = useState('');
-    const [ activities, setActivities ] = useState(null)
+    const [routine, setRoutine] = useState({});
+    const [ activities, setActivities ] = useState(null);
+
     const history = useHistory();
 
     useEffect( () => {
@@ -47,8 +51,10 @@ const App = () => {
         <nav>
             <div className='nav-links'>
             <Link to='/'>HOME</Link>
+            <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
+            <Link to='/routines'>ROUTINES</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
-            <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
+            <Link to='/login' className={!user.username ? '' : 'loggedOut'}>LOGIN</Link>
             </div>
         </nav>
 
@@ -63,8 +69,14 @@ const App = () => {
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
         </Route>
+        <Route path='/routines'>
+            <Routines />
+        </Route>
         <Route path="/Activity">
             <Activity setActivities={ setActivities } />
+        </Route>
+        <Route path='/myroutines'>
+            <MyRoutines token={token} user={user} />
         </Route>
 
     </>)
