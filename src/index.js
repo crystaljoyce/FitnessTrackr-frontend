@@ -18,7 +18,6 @@ const App = () => {
     const [ activities, setActivities ] = useState([]);
     const [token, setToken] = useState('');
     const [routine, setRoutine] = useState({});
-    const [ activities, setActivities ] = useState(null);
 
     const history = useHistory();
 
@@ -56,12 +55,8 @@ const App = () => {
             <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
             <Link to='/routines'>ROUTINES</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
-<<<<<<< HEAD
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
             <Link to='/activity'>Activity</Link>
-=======
-            <Link to='/login' className={!user.username ? '' : 'loggedOut'}>LOGIN</Link>
->>>>>>> main
             </div>
         </nav>
 
@@ -76,26 +71,15 @@ const App = () => {
         <Route path='/register'>
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
         </Route>
-<<<<<<< HEAD
-        <Route path='/activity'>
-            <AddNewActivity
-            activities={activities}
-            token={token}
-            />
-            <Activity 
-            type={'activity'} 
-            setActivities={setActivities} 
-            activities={activities} />
-=======
         <Route path='/routines'>
             <Routines />
         </Route>
         <Route path="/Activity">
+            <AddNewActivity /> 
             <Activity setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
             <MyRoutines token={token} user={user} />
->>>>>>> main
         </Route>
 
     </>)

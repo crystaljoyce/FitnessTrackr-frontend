@@ -3,9 +3,8 @@ import Dropdown from 'react-dropdown';
 
 const BASE_URL = 'http://localhost:3000/api'
 
-const Activity = (props) => { 
-    const [ activities, setActivities ] = useState([]);
-    const { token } = props; 
+const Activity = ({props}) => { 
+    const { token, activities, setActivities } = props; 
 
     const fetchActivity = async () => {
         const response = await fetch(`${BASE_URL}/activities`, {
