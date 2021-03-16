@@ -70,13 +70,13 @@ const App = () => {
             <AccountForm type={'register'} setToken={setToken} setUser={setUser} />
         </Route>
         <Route path='/routines'>
-            <Routines token={token} setRoutine={setRoutine} />
+            <Routines />
         </Route>
         <Route path="/Activity">
             <Activity setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
-            <MyRoutines token={token} />
+            <MyRoutines token={token} user={user} />
         </Route>
 
     </>)

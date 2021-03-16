@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const Routines = ({token, setRoutine}) => {
+const Routines = () => {
     const [routineList, setRoutineList] = useState([]);
 
     useEffect(async () => {
@@ -16,8 +16,6 @@ const Routines = ({token, setRoutine}) => {
         const data = await response.json();
         setRoutineList(data);
     }, [])
-
-    console.log('routineList: ', routineList)
     
     return (<div className='routines'>
         <h2>ROUTINES</h2>
