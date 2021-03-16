@@ -9,6 +9,7 @@ import {
     Home,
     MyRoutines,
     AddNewActivity,
+    ModifyRoutine,
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
@@ -18,7 +19,9 @@ const App = () => {
     const [ activities, setActivities ] = useState([]);
     const [token, setToken] = useState('');
     const [routine, setRoutine] = useState({});
-
+    const [name, setName] = useState('');
+    const [goal, setGoal] = useState('');
+    const [isPublic, setIsPublic] = useState(false);
     const history = useHistory();
 
     useEffect( () => {
@@ -81,7 +84,10 @@ const App = () => {
             <Activity token={token} setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
-            <MyRoutines token={token} user={user} />
+            <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
+        </Route>
+        <Route path='/modifyroutine'>
+            <ModifyRoutine token={token} routine={routine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} />
         </Route>
 
     </>)

@@ -5,15 +5,10 @@ const URL = 'http://localhost:3000/api/'
 
 import RoutineForm from './RoutineForm';
 
-//edit routine
-//delete routine
 //show list of routines -- need to update list once you click add new routine
 
-const MyRoutines = ({token, user}) => {
+const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPublic, setIsPublic}) => {
     const [myRoutines, setMyRoutines] = useState([]);
-    const [name, setName] = useState('');
-    const [goal, setGoal] = useState('');
-    const [isPublic, setIsPublic] = useState(false);
 
     useEffect(async () => {
         const response = await fetch(`${URL}users/${user.username}/routines`, {
@@ -26,21 +21,6 @@ const MyRoutines = ({token, user}) => {
         setMyRoutines(data);
     }, []);
 
-    const handleDelete = async (event) => {
-        event.preventDefault();
-
-        const response = await fetch(`${URL}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
-        const data = await response.json();
-    };
-
-    console.log('myRoutines: ', myRoutines)
-
     if (token) {
         return (<div className='my-routines'>
             <h2>MY ROUTINES</h2>
@@ -52,22 +32,19 @@ const MyRoutines = ({token, user}) => {
 
                 return (<div className='routine' key={id}>
                     <h3>{name.toUpperCase()}</h3>
-                    <div className='view-routine'>
-                        <p>{goal}</p>
-                        <h4>ACTIVITIES</h4>
-                        {activities.map(activity => {
-                            const {activityId, count, duration, name, description} = activity;
+                    <p>{goal}</p>
+                    <h4>ACTIVITIES</h4>
+                    {activities.map(activity => {
+                        const {activityId, count, duration, name, description} = activity;
 
-                            return <div className='activity' key={activityId}>
-                                <h5>{name.toUpperCase()}</h5>
-                                <p>{description}</p>
-                                <p>Count: {count}</p>
-                                <p>Duration: {duration}</p>
-                            </div>
-                        })}
-                        <button>EDIT</button>
-                        <button id='danger-button' onClick={handleDelete}>DELETE</button>
-                    </div>
+                        return <div className='activity' key={activityId}>
+                            <h5>{name.toUpperCase()}</h5>
+                            <p>{description}</p>
+                            <p>Count: {count}</p>
+                            <p>Duration: {duration}</p>
+                        </div>
+                    })}
+                    <Link to='/modifyroutine'><button onClick={() => setRoutine(routine)}>MODIFY ROUTINE</button></Link>
                 </div>)
             })}
         </div>)
