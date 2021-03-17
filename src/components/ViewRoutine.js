@@ -6,7 +6,7 @@ const URL = 'http://localhost:3000/api/'
 //do something so the user knows their routine has been deleted
 //edit routine
 
-const ModifyRoutine = ({token, routine, setName, setGoal, setIsPublic}) => {
+const ViewRoutine = ({token, routine, setName, setGoal, setIsPublic}) => {
     const {id, name, goal, isPublic} = routine;
 
     const handleDelete = async (event) => {
@@ -34,7 +34,7 @@ const ModifyRoutine = ({token, routine, setName, setGoal, setIsPublic}) => {
             <h3>{name.toUpperCase()}</h3>
             <p>{goal}</p>
             <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
-            <button onClick={handleClick}>EDIT</button>
+            <Link to='editroutine'><button onClick={handleClick}>EDIT</button></Link>
             <button id='danger-button' onClick={handleDelete}>DELETE</button>
         </div>)
     } else {
@@ -42,4 +42,4 @@ const ModifyRoutine = ({token, routine, setName, setGoal, setIsPublic}) => {
     }
 }
 
-export default ModifyRoutine;
+export default ViewRoutine;

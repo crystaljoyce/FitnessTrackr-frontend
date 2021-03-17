@@ -9,7 +9,8 @@ import {
     Home,
     MyRoutines,
     AddNewActivity,
-    ModifyRoutine,
+    ViewRoutine,
+    EditRoutine
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
@@ -86,8 +87,11 @@ const App = () => {
         <Route path='/myroutines'>
             <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
         </Route>
-        <Route path='/modifyroutine'>
-            <ModifyRoutine token={token} routine={routine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} />
+        <Route path='/viewroutine'>
+            <ViewRoutine token={token} routine={routine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} />
+        </Route>
+        <Route path='/editroutine'>
+            <EditRoutine token={token} routine={routine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
         </Route>
 
     </>)

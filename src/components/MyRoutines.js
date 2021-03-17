@@ -44,7 +44,7 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                             <p>Duration: {duration}</p>
                         </div>
                     })}
-                    <Link to='/modifyroutine'><button onClick={() => setRoutine(routine)}>MODIFY ROUTINE</button></Link>
+                    <Link to='/viewroutine'><button onClick={() => setRoutine(routine)}>VIEW ROUTINE</button></Link>
                 </div>)
             })}
         </div>)
