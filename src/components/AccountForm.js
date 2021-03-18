@@ -54,16 +54,19 @@ const AccountForm = ({type, setToken, setUser}) => {
     }
 
     return (<div className='accountForm'>
-        <>{loginMessage}</>
+        <div className="container"> 
+        <div className="main-content"> 
+        <div className="inner"> 
+        <h2 >{loginMessage}</h2>
         <br/>
-        <h2>{title}</h2>
+        <h2 className="text-center">{title}</h2>
         <form onSubmit={handleSubmit}>
             <div>
-                <div>Username </div>
+                <div className="field-label">Username </div>
                 <input type='text' value={username} minLength='3' maxLength='20' required onChange={event => setUsername(event.target.value)}></input>
             </div>
             <div>
-                <div>Password </div>
+                <div className="field-label">Password </div>
                 <input type='password' value={password} minLength='7' maxLength='20' required onChange={event => setPassword(event.target.value)}></input>
             </div>
             <div>
@@ -77,6 +80,9 @@ const AccountForm = ({type, setToken, setUser}) => {
             <button type='submit'>{title}</button>
         </form>
         <div className='opposite-account-form'><Link to={`/${oppositeType}`}>{oppositeTitle}</Link></div>
+    </div>
+    </div>
+    </div>
     </div>)
 }
 
