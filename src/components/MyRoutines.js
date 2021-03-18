@@ -26,6 +26,8 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
 
     if (token) {
         return (<div className='my-routines'>
+            <div className="main-content"> 
+        <div className="inner"> 
             <h2>MY ROUTINES</h2>
 
             <RoutineForm token={token} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} getRoutines={getRoutines} />
@@ -37,7 +39,7 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                     <h3>{name.toUpperCase()}</h3>
                     <p>{goal}</p>
                     <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
-                    <h4>ACTIVITIES</h4>
+                    <h4 className="activities-list">ACTIVITIES</h4>
                     {activities.map(activity => {
                         const {activityId, count, duration, name, description} = activity;
 
@@ -48,9 +50,12 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                             <p>Duration: {duration}</p>
                         </div>
                     })}
+                    
                     <Link to='/viewroutine'><button onClick={() => setRoutine(routine)}>VIEW ROUTINE</button></Link>
                 </div>)
             })}
+            </div>
+            </div> 
         </div>)
     } else {
         return <Redirect to='/' />

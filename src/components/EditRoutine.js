@@ -35,6 +35,8 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
     if (token) {
 
         return (<div className='routine-form'>
+            <div className="main-content"> 
+        <div className="inner"> 
             <h3>EDIT ROUTINE</h3>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -49,6 +51,8 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
                 ></input> </div>
                 <button type='submit'>EDIT ROUTINE</button>
             </form>
+            </div> 
+            </div> 
         </div>)
     } else {
         return <Redirect to='/' />

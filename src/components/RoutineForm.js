@@ -36,6 +36,8 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
 
     if (token) {
     return (<div className='routine-form'>
+         <div className="main-content"> 
+        <div className="inner"> 
         <h3>CREATE A NEW ROUTINE</h3>
         <form onSubmit={handleSubmit}>
             <div>
@@ -45,12 +47,14 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
             <div>
                 <div>Goal</div>
                 <div><textarea required value={goal} onChange={event => setGoal(event.target.value)} ></textarea></div>
-            </div>
+            </div> <br/>
             <div>
-                <div>Public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => {setIsPublic(!isPublic)}} ></input></div>
+                <div className="public">Make this routine public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => {setIsPublic(!isPublic)}} ></input></div>
             </div>
             <button type='submit'>ADD NEW ROUTINE</button>
         </form>
+        </div>
+        </div>
     </div>) } else {
         return <Redirect to='/' />
     }
