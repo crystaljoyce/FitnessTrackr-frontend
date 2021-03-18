@@ -5,27 +5,30 @@ const URL = 'http://localhost:3000/api/'
 
 import RoutineForm from './RoutineForm';
 
-//show list of routines -- need to update list once you click add new routine
-
 const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPublic, setIsPublic}) => {
     const [myRoutines, setMyRoutines] = useState([]);
 
-    useEffect(async () => {
+    const getRoutines = async () => {
         const response = await fetch(`${URL}users/${user.username}/routines`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'Application/json'
+                'Content-Type': 'Application/json',
+                'Authorization': `Bearer ${token}`
             }
         });
         const data = await response.json();
         setMyRoutines(data);
+    }
+
+    useEffect(async () => {
+        await getRoutines();
     }, []);
 
     if (token) {
         return (<div className='my-routines'>
             <h2>MY ROUTINES</h2>
 
-            <RoutineForm token={token} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
+            <RoutineForm token={token} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} getRoutines={getRoutines} />
 
             {myRoutines.map(routine => {
                 const {id, name, goal, isPublic, activities} = routine;
@@ -33,6 +36,7 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                 return (<div className='routine' key={id}>
                     <h3>{name.toUpperCase()}</h3>
                     <p>{goal}</p>
+                    <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
                     <h4>ACTIVITIES</h4>
                     {activities.map(activity => {
                         const {activityId, count, duration, name, description} = activity;

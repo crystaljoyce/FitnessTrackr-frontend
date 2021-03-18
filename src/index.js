@@ -10,7 +10,7 @@ import {
     MyRoutines,
     AddNewActivity,
     ViewRoutine,
-    EditRoutine
+    EditRoutine,
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
@@ -41,7 +41,6 @@ const App = () => {
             captureToken()
         }
     }, [token])
-    console.log('token in index.js ', token)
 
     const handleLogout = (event) => {
         event.preventDefault()
@@ -88,7 +87,7 @@ const App = () => {
             <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
         </Route>
         <Route path='/viewroutine'>
-            <ViewRoutine token={token} routine={routine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} />
+            <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} />
         </Route>
         <Route path='/editroutine'>
             <EditRoutine token={token} routine={routine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
