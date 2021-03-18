@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic}) => {
+const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic, getRoutines}) => {
 
     useEffect(() => {
         setName('');
@@ -27,15 +27,14 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
             })
         });
         const data = await response.json();
-        console.log('routineformdata: ', data)
+        await getRoutines()
         //maybe set some kind of message here with state
         setName('');
         setGoal('');
         setIsPublic(false);
     }
 
-    console.log('NICE')
-
+    if (token) {
     return (<div className='routine-form'>
         <h3>CREATE A NEW ROUTINE</h3>
         <form onSubmit={handleSubmit}>
@@ -48,11 +47,13 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
                 <div><textarea required value={goal} onChange={event => setGoal(event.target.value)} ></textarea></div>
             </div>
             <div>
-                <div>Public? <input className='routine-form-checkbox' type='checkbox' value={isPublic} onChange={event => setIsPublic(!isPublic)} ></input></div>
+                <div>Public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => {setIsPublic(!isPublic)}} ></input></div>
             </div>
             <button type='submit'>ADD NEW ROUTINE</button>
         </form>
-    </div>)
+    </div>) } else {
+        return <Redirect to='/' />
+    }
 }
 
 export default RoutineForm;

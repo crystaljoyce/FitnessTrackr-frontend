@@ -9,6 +9,8 @@ import {
     Home,
     MyRoutines,
     AddNewActivity,
+    ViewRoutine,
+    EditRoutine,
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
@@ -18,7 +20,9 @@ const App = () => {
     const [ activities, setActivities ] = useState([]);
     const [token, setToken] = useState('');
     const [routine, setRoutine] = useState({});
-
+    const [name, setName] = useState('');
+    const [goal, setGoal] = useState('');
+    const [isPublic, setIsPublic] = useState(false);
     const history = useHistory();
 
     useEffect( () => {
@@ -37,7 +41,6 @@ const App = () => {
             captureToken()
         }
     }, [token])
-    console.log('token in index.js ', token)
 
     const handleLogout = (event) => {
         event.preventDefault()
@@ -81,7 +84,13 @@ const App = () => {
             <Activity token={token} setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
-            <MyRoutines token={token} user={user} />
+            <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
+        </Route>
+        <Route path='/viewroutine'>
+            <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} />
+        </Route>
+        <Route path='/editroutine'>
+            <EditRoutine token={token} routine={routine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
         </Route>
 
     </>)

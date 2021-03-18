@@ -6,7 +6,8 @@ const BASE_URL = 'http://localhost:3000/api/'
 const Activity = (props) => { 
     // const { token, activities, setActivities } = props; 
     const [ activities, setActivities ] = useState([]);
-    const { token } = props; 
+
+    const { token, selectedActivity, setSelectedActivity } = props; 
     console.log(token)
     const fetchActivity = async () => {
         const response = await fetch('http://localhost:3000/api/activities', {
@@ -17,21 +18,28 @@ const Activity = (props) => {
             },
         });
         const data = await response.json(); 
-        console.log('activity data: ',data)
         setActivities(data)
     }
+
+    const handleSelect = (event) => {
+        setSelectedActivity(event.value)
+    }
+
     useEffect(() => {
         fetchActivity();
-        console.log(activities)
     },[]); 
 
     const options = activities.map((activity, index) => { 
-        return activity.name 
+        return {
+            value: activity.id,
+            label: activity.name
+        }
     })
     const defaultOption = options[0]
+    console.log('defaultOption: ', defaultOption)
     return <>
     { <div className="activityDropdown">
-        <Dropdown options={options} value={defaultOption} placeholder="Select an activity"/>
+        <Dropdown options={options} value={defaultOption} onChange={handleSelect} placeholder="Select an activity"/>
         </div>
         }
 
