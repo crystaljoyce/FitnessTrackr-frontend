@@ -36,6 +36,8 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                 const {id, name, goal, isPublic, activities} = routine;
 
                 return (<div className='routine' key={id}>
+                    <div className="main-content"> 
+                    <div className="inner-inner"> 
                     <h3>{name.toUpperCase()}</h3>
                     <p>{goal}</p>
                     <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
@@ -52,7 +54,10 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                     })}
                     
                     <Link to='/viewroutine'><button onClick={() => setRoutine(routine)}>VIEW ROUTINE</button></Link>
+                </div> 
+                </div> 
                 </div>)
+
             })}
             </div>
             </div> 

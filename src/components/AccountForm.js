@@ -56,7 +56,7 @@ const AccountForm = ({type, setToken, setUser}) => {
     return (<div className='accountForm'>
         <div className="container"> 
         <div className="main-content"> 
-        <div className="inner"> 
+        <div className="inner-inner"> 
         <h2 >{loginMessage}</h2>
         <br/>
         <h2 className="text-center">{title}</h2>

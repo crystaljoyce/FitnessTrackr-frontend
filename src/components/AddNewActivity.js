@@ -28,6 +28,8 @@ const AddNewActivity = ( {token} ) => {
         setDescription('')
     } 
     return <>
+    <div className="main-content"> 
+        <div className="inner"> 
     <h2> Add a new activity</h2>
     <div className="addNewActivity"></div> 
     <form onSubmit={handleSubmit}>
@@ -48,6 +50,8 @@ const AddNewActivity = ( {token} ) => {
                 Add Activity
             </button>
     </form>
+    </div> 
+    </div> 
     </>
 }
 

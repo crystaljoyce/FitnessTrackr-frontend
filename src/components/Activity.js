@@ -38,10 +38,16 @@ const Activity = (props) => {
     const defaultOption = options[0]
     console.log('defaultOption: ', defaultOption)
     return <>
-    { <div className="activityDropdown">
+    <div className="main-content"> 
+        <div className="inner"> 
+    { 
+    <div className="activityDropdown">
         <Dropdown options={options} value={defaultOption} onChange={handleSelect} placeholder="Select an activity"/>
         </div>
+        
         }
+        </div>
+        </div>
 
     </>;
 }

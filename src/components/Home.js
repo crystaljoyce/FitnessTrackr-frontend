@@ -5,7 +5,7 @@ const Home = ({user}) => {
     return (<div className='home-page-text'>
         <div className="main-content"> 
         <div className="inner"> 
-        <h2>Welcome to Fitness Trac.kr</h2>
+        <h2>Welcome to Fitness Trackr</h2>
         <div className="main-content"> 
         <div className="inner"> 
         {user.username ?

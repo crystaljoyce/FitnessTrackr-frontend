@@ -46,7 +46,7 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
             </div>
             <div>
                 <div>Goal</div>
-                <div><textarea required value={goal} onChange={event => setGoal(event.target.value)} ></textarea></div>
+                <div><input required value={goal} onChange={event => setGoal(event.target.value)} ></input></div>
             </div> <br/>
             <div>
                 <div className="public">Make this routine public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => {setIsPublic(!isPublic)}} ></input></div>

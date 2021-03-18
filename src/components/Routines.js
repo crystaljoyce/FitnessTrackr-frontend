@@ -25,7 +25,7 @@ const Routines = () => {
             const {id, name, creatorName, goal, activities} = routine;
 
             return <div className="main-content"> 
-            <div className="inner"> 
+            <div className="inner-inner"> 
             <div className='routine' key={id}>
                 <h3>{name.toUpperCase()}</h3>
                 <div className='view-routine'>
