@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 
 const AddNewActivity = ( {token} ) => {
@@ -39,12 +40,12 @@ const AddNewActivity = ( {token} ) => {
             value={name}
             onChange={(event) => setName(event.target.value)}>
         </input> <br/>
-        <textarea
+        <input
             type="text"
             placeholder="description"
             value={description}
             onChange={(event) => setDescription(event.target.value)}>
-        </textarea> <br/>
+        </input> <br/>
         <button
             type="submit">
                 Add Activity

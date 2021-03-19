@@ -75,7 +75,7 @@ const App = () => {
             </div>
         </nav>
 
-        <div>hey it's me...fitness trackr</div>
+        <div>Let's get physical!</div>
 
         <Route exact path='/'>
             <Home user={user} />
