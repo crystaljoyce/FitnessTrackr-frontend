@@ -11,6 +11,8 @@ import {
     AddNewActivity,
     ViewRoutine,
     EditRoutine,
+    ViewRoutineActivity,
+    EditRoutineActivity
 } from './components'
 
 const URL = 'http://localhost:3000/api/'
@@ -23,6 +25,9 @@ const App = () => {
     const [name, setName] = useState('');
     const [goal, setGoal] = useState('');
     const [isPublic, setIsPublic] = useState(false);
+    const [activity, setActivity] = useState({});
+    const [count, setCount] = useState(0);
+    const [duration, setDuration] = useState(0);
     const history = useHistory();
 
     useEffect( () => {
@@ -90,7 +95,13 @@ const App = () => {
             <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} />
         </Route>
         <Route path='/editroutine'>
-            <EditRoutine token={token} routine={routine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
+            <EditRoutine token={token} routine={routine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} activity={activity} setActivity={setActivity} />
+        </Route>
+        <Route path='/viewroutineactivity'>
+            <ViewRoutineActivity token={token} activity={activity} setActivity={setActivity} setCount={setCount} setDuration={setDuration} />
+        </Route>
+        <Route path='/editroutineactivity'>
+            <EditRoutineActivity token={token} activity={activity} count={count} setCount={setCount} duration={duration} setDuration={setDuration} />
         </Route>
 
     </>)

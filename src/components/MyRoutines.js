@@ -39,13 +39,13 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                     <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
                     <h4>ACTIVITIES</h4>
                     {activities.map(activity => {
-                        const {activityId, count, duration, name, description} = activity;
+                        const {activityId, id, count, duration, name, description} = activity;
 
-                        return <div className='activity' key={activityId}>
+                        return <div className='activity' key={id}>
                             <h5>{name.toUpperCase()}</h5>
                             <p>{description}</p>
-                            <p>Count: {count}</p>
-                            <p>Duration: {duration}</p>
+                            <p>Count: {count} minutes</p>
+                            <p>Duration: {duration} reps</p>
                         </div>
                     })}
                     <Link to='/viewroutine'><button onClick={() => setRoutine(routine)}>VIEW ROUTINE</button></Link>
