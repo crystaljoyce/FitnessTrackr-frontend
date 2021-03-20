@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom
 import { 
     AccountForm,
     Routines,
-    Activity,
+    Activities,
     Home,
     MyRoutines,
     AddNewActivity,
@@ -61,12 +61,11 @@ const App = () => {
             <Link to='/routines'>ROUTINES</Link>
             <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
-            <Link to='/activity'>Activity</Link>
+            <Link to='/activities'>Activities</Link>
             </div>
             </div>
         </nav>
         </div> 
-        <div>Let's get physical!</div>
 
         <Route exact path='/'>
             <Home user={user} />
@@ -80,11 +79,11 @@ const App = () => {
         <Route path='/routines'>
             <Routines />
         </Route>
-        <Route path="/Activity">
+        <Route path="/Activities">
             {token ? 
             <AddNewActivity token={token} /> : 
                 '' }
-            <Activity token={token} setActivities={ setActivities } />
+            <Activities token={token} setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
             { token ? 

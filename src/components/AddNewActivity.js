@@ -33,7 +33,7 @@ const AddNewActivity = ( {token} ) => {
     return <>
     <div className="main-content"> 
         <div className="inner"> 
-    <h2> Add a new activity</h2>
+    <h2> ADD A NEW ACTIVITY</h2>
     <div className="addNewActivity"></div> 
     <form onSubmit={handleSubmit}>
         <input
@@ -50,7 +50,7 @@ const AddNewActivity = ( {token} ) => {
         </input> <br/>
         <button
             type="submit">
-                Add Activity
+                ADD ACTIVITY
             </button>
     </form>
     </div> 

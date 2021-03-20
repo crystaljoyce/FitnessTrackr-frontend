@@ -50,7 +50,7 @@ const Activities = (props) => {
         <div className="inner"> 
     { 
     <div className="activityDropdown">
-        <div className="field-label"> EXISTING ACTIVITIES: </div> 
+        <div className="field-label"> SELECT AN EXISTING ACTIVITIES FROM THE DROPDOWN LIST: </div> 
         <Dropdown options={options} value={defaultOption} onChange={handleSelect} 
         onClick={onOptionClicked(options)} key={Math.random()}/>
         </div>
