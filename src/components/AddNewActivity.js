@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 
 const AddNewActivity = ( {token} ) => {
@@ -26,11 +27,11 @@ const AddNewActivity = ( {token} ) => {
         console.log('data:  ', data)
         setName('')
         setDescription('')
-    }
+    } 
     return <>
     <div className="main-content"> 
-    <div className="inner"> 
-    <h2> ADD A NEW ACTIVITY</h2>
+        <div className="inner"> 
+    <h2> Add a new activity</h2>
     <div className="addNewActivity"></div> 
     <form onSubmit={handleSubmit}>
         <input
@@ -47,7 +48,7 @@ const AddNewActivity = ( {token} ) => {
         </input> <br/>
         <button
             type="submit">
-                ADD ACTIVITY
+                Add Activity
             </button>
     </form>
     </div> 

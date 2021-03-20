@@ -30,7 +30,6 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
         setName('');
         setGoal('');
         setIsPublic(false);
-        history.push('/myroutines');
     }
 
     if (token) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Redirect, useHistory} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
@@ -9,7 +9,6 @@ import RoutineActivityForm from './RoutineActivityForm';
 
 const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic, activities, setActivities}) => {
     const {id, name, goal, isPublic} = routine;
-    const history = useHistory();
 
     const handleDelete = async (event) => {
         event.preventDefault();
@@ -28,8 +27,6 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
         setName(name);
         setGoal(goal);
         setIsPublic(isPublic);
-        history.push('/routines');
-
     }
 
     if (token) {
@@ -48,7 +45,7 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
         </div>
         </div>)
     } else {
-        return <Redirect to='/routines' />
+        return <Redirect to='/' />
     }
 }
 

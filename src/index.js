@@ -50,28 +50,32 @@ const App = () => {
         localStorage.clear()
         history.push('/')
     }
+
     return (<>
         <div className="logo-head"> 
         <h1 className="logo">Fitness Trackr</h1>
+        </div>
         <nav>
             <div className="col-md-8 col-sm-12 text-center header-column">
             <div className='navigation'>
             <Link to='/'>HOME</Link>
-            
+            <i className="fa-circle" ></i>
             <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
-            
+            <i className="fa fa-circle" aria-hidden="true"></i>
             <Link to='/routines'>ROUTINES</Link>
+            <i className="fa fa-circle" aria-hidden="true"></i>
             { token 
             ? <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link> 
             : 
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
             }
-            <Link to='/activities'>Activities</Link>
+            <i className="fa fa-circle" aria-hidden="true"></i>
+            <Link to='/activity'>Activity</Link>
             </div>
             </div>
         </nav>
-        </div>
 
+        <div>Let's get physical!</div>
 
         <Route exact path='/'>
             <Home user={user} />
@@ -93,7 +97,7 @@ const App = () => {
             <EditActivity token={token} />
         </Route>
         <Route path='/myroutines'>
-            <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} /> 
+            <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
         </Route>
         <Route path='/viewroutine'>
             <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} />

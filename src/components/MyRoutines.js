@@ -40,7 +40,7 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                     <div className="inner-inner"> 
                     <h3>{name.toUpperCase()}</h3>
                     <p>{goal}</p>
-                    <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div> <hr/> 
+                    <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
                     <h4 className="activities-list">ACTIVITIES</h4>
                     {activities.map(activity => {
                         const {activityId, count, duration, name, description} = activity;
