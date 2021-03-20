@@ -5,14 +5,13 @@ import {BrowserRouter as Router, Route, Link, useHistory} from 'react-router-dom
 import { 
     AccountForm,
     Routines,
-    Activities,
+    Activity,
     Home,
     MyRoutines,
     AddNewActivity,
     ViewRoutine,
     EditRoutine,
 } from './components'
-import EditActivity from './components/EditActivity';
 
 const URL = 'http://localhost:3000/api/'
 
@@ -52,9 +51,11 @@ const App = () => {
     }
 
     return (<>
-        <h1>Fitness Trackr</h1>
+        <div className="logo-head"> 
+        <h1 className="logo">Fitness Trackr</h1>
         <nav>
-            <div className='nav-links'>
+        <div className="col-md-8 col-sm-12 text-center header-column">
+            <div className='navigation'>
             <Link to='/'>HOME</Link>
             <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
             <Link to='/routines'>ROUTINES</Link>
@@ -62,8 +63,9 @@ const App = () => {
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
             <Link to='/activity'>Activity</Link>
             </div>
+            </div>
         </nav>
-
+        </div> 
         <div>Let's get physical!</div>
 
         <Route exact path='/'>
@@ -78,15 +80,16 @@ const App = () => {
         <Route path='/routines'>
             <Routines />
         </Route>
-        <Route path="/Activities">
+        <Route path="/Activity">
             {token ? 
             <AddNewActivity token={token} /> : 
                 '' }
-            <Activities token={token} setActivities={ setActivities } activities={activities}  />
-            <EditActivity token={token} />
+            <Activity token={token} setActivities={ setActivities } />
         </Route>
         <Route path='/myroutines'>
-            <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} />
+            { token ? 
+            <MyRoutines token={token} user={user} setRoutine={setRoutine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} /> :
+             '' }
         </Route>
         <Route path='/viewroutine'>
             <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} />

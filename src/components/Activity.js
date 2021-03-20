@@ -6,9 +6,9 @@ const BASE_URL = 'http://localhost:3000/api/'
 const Activities = (props) => { 
     // const { token, activities, setActivities } = props; 
     const [ activities, setActivities ] = useState([]);
+
     const { token, selectedActivity, setSelectedActivity } = props; 
     console.log(token)
-    
     const fetchActivity = async () => {
         const response = await fetch('http://localhost:3000/api/activities', {
             method: 'GET',
@@ -36,17 +36,29 @@ const Activities = (props) => {
         }
     })
     const defaultOption = options[0]
+
     console.log('defaultOption: ', defaultOption)
+
+    const onOptionClicked = value => () => {
+        setSelectedOption(value);
+        setIsOpen(false);
+        console.log(selectedOption);
+      };
+
     return <>
     <div className="main-content"> 
         <div className="inner"> 
     { 
     <div className="activityDropdown">
-        <Dropdown options={options} value={defaultOption} onChange={handleSelect} placeholder="Select an activity"/>
+        <div className="field-label"> EXISTING ACTIVITIES: </div> 
+        <Dropdown options={options} value={defaultOption} onChange={handleSelect} 
+        onClick={onOptionClicked(options)} key={Math.random()}/>
         </div>
+        
         }
         </div>
         </div>
+
     </>;
 }
 
