@@ -1,66 +1,52 @@
-import React, { useState , useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import Dropdown from 'react-dropdown';
-import EditActivity from './EditActivity';
 
-const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
+const URL = 'http://localhost:3000/api/'
 
-const Activities = (props) => { 
-    const [activities, setActivities] = useState([]);
-    const [activity, setActivity] = useState('')
-    // const [id, setId] = useState('');
-    const { token,  selectedActivity, setSelectedActivity, setActivityName, activityName, description, setDescription, setId, Id } = props; 
-    
-    const fetchActivity = async () => {
+const Activities = (props) => {
+    const [activitiesList, setActivitiesList] = useState([]);
+    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription }= props; 
+
+    useEffect(async () => {
         const response = await fetch(`${URL}activities`, {
             method: 'GET',
             headers: {
-            'Content-Type': 'Application/json',
-            'Authorizaiton': `Bearer ${token}` 
-            },
+                'Content-Type': 'Application/json'
+            }
         });
-        const data = await response.json(); 
-        setActivities(data)
+        const data = await response.json();
+        setActivitiesList(data);
+    }, [])
+    
+    return (<div className='activities'>
+        {activitiesList.map(activityCJ => {
+            const {id, name, description} = activityCJ;
+            setActivityListId(id)
+            setActivityName(name)
+            setDescription(description)
+            console.log('setting id', activityListId)
+            console.log('setting name', activityName)
+            console.log('setting description', description)
+
+            return <div className="main-content"> 
+            <div className="inner-inner"> 
+            <div className='activities' key={id}>
+                <h3>{name.toUpperCase()}</h3>
+                <div className='view-activities'>
+                    <h5>{name}</h5>
+                    <p>{description}</p>
+                    <div hidden='true'>{id} </div> 
+                    <Link to='/editactivity'><button 
+                    // onClick={handleActivityEdit} 
+                    >EDIT ACTIVITY</button></Link>
+                        </div> 
+                </div>
+                <br />
+            </div>
+            </div>}
+     ) }</div>)
         
-
-        console.log('ACTIVITIES DATA', data)
-
-    }
-
-    const setActivityToEdit = (activityName, description, id) => { 
-        console.log('activityName', activityName)
-        console.log('description', description)
-        console.log('id', id)
-
-
-        setActivityName(activityName)
-        setDescription(description)
-        setId(id)
-        console.log('THIS IS THE ID WITHIN ACTIVITIES',id)
-        }
-    useEffect(() => {
-        fetchActivity();
-    },[]); 
-
-    return <>
-    <div className="main-content"> 
-        <div className="inner"> 
-        <h2> EXISITING ACTIVIITES TO ADD TO A ROUTINE </h2>
-        {   
-            activities.map((activity, idx, index) => { 
-                const { id, name, description } = activity
-                return <>
-                <h4 key={idx}> {name}</h4> 
-                <p key={index}> {description} </p> 
-
-                <Link to='/editactivity'><button onClick={(() => {setActivityToEdit(activityName, description)})} >EDIT ACTIVITY</button></Link>
-                </>          
-                })
-        }
-        </div>
-        </div>
-        
-    </>;
+    
 }
 
-export default Activities; 
+export default Activities;

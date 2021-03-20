@@ -31,7 +31,7 @@ const App = () => {
     const [activity, setActivity] = useState({});
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [id, setId] = useState('')
+    const [activityListId, setActivityListId] = useState('');
     const history = useHistory();
 
     useEffect( () => {
@@ -92,10 +92,10 @@ const App = () => {
             {token ? 
             <AddNewActivity token={token} /> : 
                 '' }
-            <Activities token={token} setActivities={setActivities} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setId={setId} id={id} activity={activity} />
+            <Activities token={token} setActivities={setActivities} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setActivityListId={setActivityListId} activityListId={activityListId} activity={activity} setDescription={setDescription}/>
         </Route>
         <Route path='/editactivity'> 
-            <EditActivity token={token} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setId={setId} id={id} activity={activity}/>
+            <EditActivity token={token} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setActivityListId={setActivityListId} activityListId={activityListId} activity={activity} setDescription={setDescription}/>
         </Route>
         <Route path='/myroutines'>
             { token ? 
@@ -103,7 +103,7 @@ const App = () => {
              '' }
         </Route>
         <Route path='/viewroutine'>
-            <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} />
+            <ViewRoutine token={token} routine={routine} setRoutine={setRoutine} setName={setName} setGoal={setGoal} setIsPublic={setIsPublic} activities={activities} setActivities={setActivities} setActivityListId={setActivityListId} ßsetActivityName={setActivityName} setDescription={setDescription}/>
         </Route>
         <Route path='/editroutine'>
             <EditRoutine token={token} routine={routine} name={name} setName={setName} goal={goal} setGoal={setGoal} isPublic={isPublic} setIsPublic={setIsPublic} activity={activity} setActivity={setActivity} />

@@ -1,17 +1,25 @@
 import React, {useState} from 'react';
-import {Redirect, useHistory} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
+
 
 const URL = 'http://localhost:3000/api/'
 
-const EditActivity = (props) => {
-    const { token, activity, setId, setActivityName, setDescription, activities } = props; 
-    const { id, activityName, description } = activity; 
-    const history = useHistory();
+import RoutineActivities from './RoutineActivities';
 
-    const handleActivityEdit = async (event) => {
+//deploy back end code to heroku
+
+const EditActivity = ({token, activityListId, activityName, setActivityName, description, setDescription}) => {
+    // const { id } = activity; 
+    console.log('edit activity ID: ', activityListId)
+    console.log('edit activity name: ', activityName)
+    console.log('edit activity description: ', description)
+
+    
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`${URL}activities/${id}`, {
+        // console.log('activityListID in edit activity', activityListId)
+        const response = await fetch(`${URL}activities/${activityListId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,14 +33,15 @@ const EditActivity = (props) => {
         const data = await response.json();
         setActivityName('');
         setDescription('');
-        history.push('/activities');
     }
+
     if (token) {
-        return (<div className='edit-activity'>
+
+        return (<div className='routine-form'>
             <div className="main-content"> 
             <div className="inner"> 
             <h3>EDIT ACTIVITY</h3>
-            <form onSubmit={handleActivityEdit}>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <div>Activity Name</div>
                     <input required type='text' value={activityName} onChange={event => setActivityName(event.target.value)} ></input>
@@ -40,15 +49,14 @@ const EditActivity = (props) => {
                 <div>
                     <div>Description</div>
                     <input required type='text' value={description} onChange={event => setDescription(event.target.value)} ></input>
-
                 </div>
-                <button type='submit' >EDIT ACTIVITY</button>
+                <button type='submit'>EDIT ACTIVITY</button>
             </form>
-            </div> 
-            </div> 
+        </div> 
+        </div> 
         </div>)
     } else {
-        return <Redirect to='/activities' />
+        return <Redirect to='/home' />
     }
 }
 

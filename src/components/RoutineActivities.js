@@ -21,6 +21,7 @@ const RoutineActivities = ({routine, activity, setActivity}) => {
                     <p>{description}</p>
                     <p>Count: {count} minutes</p>
                     <p>Duration: {duration} reps</p>
+                    <br/> <br/> <br/> <br/> 
                     <Link to='/viewroutineactivity'><button onClick={() => setActivity(activity)}>VIEW ACTIVITY</button></Link>
                 </div>
             })}

@@ -36,7 +36,7 @@ const ViewRoutineActivity = ({token, activity, setActivity, setCount, setDuratio
             <p>Count: {count} minutes</p>
             <p>Duration: {duration} reps</p>
             <Link to='/editroutineactivity'><button onClick={handleClick} >EDIT</button></Link>
-            <button id='danger-button' onClick={handleDelete}>DELETE</button>
+            <button  onClick={handleDelete}>DELETE</button>
     </div>
     </div> 
     </div> 
