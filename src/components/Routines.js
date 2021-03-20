@@ -21,16 +21,17 @@ const Routines = () => {
         <div className="main-content"> 
         <div className="inner"> 
         <h2>ROUTINES</h2>
-        {routineList.map(routine => {
+        {routineList.map((routine, index) => {
             const {id, name, creatorName, goal, activities} = routine;
 
-            return <div className="main-content"> 
+            return <div className="main-content" key={id}> 
             <div className="inner-inner"> 
             <div className='routine' key={id}>
                 <h3>{name.toUpperCase()}</h3>
                 <div className='view-routine'>
                     <p>{goal}</p>
-                    <p>Created by: {creatorName} <hr/></p> 
+                    <p>Created by: {creatorName} </p> 
+                    <hr/> 
                     <h4>ACTIVITIES</h4>
                     {activities.map(activity => {
                         const {activityId, count, duration, name, description} = activity;
@@ -47,7 +48,7 @@ const Routines = () => {
                 <br />
             </div>
             </div>
-                        </div>
+            </div>
         })}
         </div>
         </div> 

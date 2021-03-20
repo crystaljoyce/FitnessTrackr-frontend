@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import Activity from './Activity';
+import Activities from './Activities';
 const URL = 'http://localhost:3000/api/'
 
 const RoutineActivityForm = ({activities, setActivities, setRoutine, routine}) => {
@@ -34,7 +34,7 @@ const RoutineActivityForm = ({activities, setActivities, setRoutine, routine}) =
     return (<div className='routine-activity-form'>
         <h3>ADD AN ACTIVITY</h3>
         <form onSubmit={handleSubmit}>
-            <Activity value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} onChange={event => setActivityName(event.target.default)} />
+            <Activities value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} onChange={event => setActivityName(event.target.default)} />
             <div>
                 <div>Count</div>
                 <input required type='number' value={count} onChange={event => setCount(event.target.value)} ></input>

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Redirect, useHistory} from 'react-router-dom';
-
+import {Redirect} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
@@ -10,8 +9,7 @@ const URL = 'http://localhost:3000/api/'
 //do the routines activities stuff then you're done
 
 const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, setIsPublic}) => {
-    const history = useHistory();
-
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -33,14 +31,13 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
         setGoal('');
         setIsPublic(false);
         history.push('/myroutines');
-
     }
 
     if (token) {
 
         return (<div className='routine-form'>
             <div className="main-content"> 
-        <div className="inner"> 
+            <div className="inner"> 
             <h3>EDIT ROUTINE</h3>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -51,15 +48,14 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
                     <div>Goal</div>
                     <input required type='text' value={goal} onChange={event => setGoal(event.target.value)} ></input>
                 </div>
-                <div>Public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => setIsPublic(!isPublic)}
-                ></input> </div>
+                <div>Public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => setIsPublic(!isPublic)}></input> </div>
                 <button type='submit'>EDIT ROUTINE</button>
             </form>
             </div> 
             </div> 
         </div>)
     } else {
-        return <Redirect to='/' />
+        return <Redirect to='/myroutines' />
     }
 }
 

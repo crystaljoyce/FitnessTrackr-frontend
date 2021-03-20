@@ -3,12 +3,12 @@ import Dropdown from 'react-dropdown';
 
 const BASE_URL = 'http://localhost:3000/api/'
 
-const Activity = (props) => { 
+const Activities = (props) => { 
     // const { token, activities, setActivities } = props; 
     const [ activities, setActivities ] = useState([]);
-
     const { token, selectedActivity, setSelectedActivity } = props; 
     console.log(token)
+    
     const fetchActivity = async () => {
         const response = await fetch('http://localhost:3000/api/activities', {
             method: 'GET',
@@ -37,29 +37,30 @@ const Activity = (props) => {
     })
     const defaultOption = options[0]
 
-    console.log('defaultOption: ', defaultOption)
-
-    const onOptionClicked = value => () => {
-        setSelectedOption(value);
-        setIsOpen(false);
-        console.log(selectedOption);
-      };
+    // const onOptionClicked = value => () => {
+    //     setSelectedOption(value);
+    //     setIsOpen(false);
+    //   };
 
     return <>
     <div className="main-content"> 
         <div className="inner"> 
     { 
     <div className="activityDropdown">
-        <div className="field-label"> EXISTING ACTIVITIES: </div> 
-        <Dropdown options={options} value={defaultOption} onChange={handleSelect} 
-        onClick={onOptionClicked(options)} key={Math.random()}/>
+        <div className="field-label"> <b>SELECT AN EXISTING ACTIVITIES FROM THE DROPDOWN LIST: <br/> </b> </div> <br/> 
+        <Dropdown 
+            options={options} 
+            value={defaultOption} 
+            onChange={handleSelect} 
+            // onClick={onOptionClicked(options)} key={Math.random()}
+            />
+            <br/> 
+            <button type='submit' > EDIT ACTIVITY</button>
         </div>
-        
         }
         </div>
         </div>
-
     </>;
 }
 
-export default Activity; 
+export default Activities; 
