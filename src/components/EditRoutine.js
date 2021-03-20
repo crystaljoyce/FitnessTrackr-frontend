@@ -4,14 +4,12 @@ import {Redirect, useHistory} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-//need to fix edit button, posts are turning private
-//after deleting, do something useful
+import RoutineActivities from './RoutineActivities';
+
 //deploy back end code to heroku
-//do the routines activities stuff then you're done
 
-const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, setIsPublic}) => {
-    const history = useHistory();
-
+const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, setIsPublic, activity, setActivity}) => {
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -28,7 +26,6 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
             })
         });
         const data = await response.json();
-
         setName('');
         setGoal('');
         setIsPublic(false);
@@ -55,8 +52,9 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
                 ></input> </div>
                 <button type='submit'>EDIT ROUTINE</button>
             </form>
-            </div> 
-            </div>
+            <RoutineActivities routine={routine} activity={activity} setActivity={setActivity} />
+        </div> 
+        </div> 
         </div>)
     } else {
         return <Redirect to='/' />

@@ -3,12 +3,13 @@ import React, {useState, useEffect} from 'react';
 import Activities from './Activities';
 const URL = 'http://localhost:3000/api/'
 
-const RoutineActivityForm = ({activities, setActivities, setRoutine, routine}) => {
+const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, routineActivityId, setRoutineActivityId}) => {
     const [activityName, setActivityName] = useState('');
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
     const [selectedActivity, setSelectedActivity] = useState(0);
     const {id} = routine;
+
     useEffect(() => {
         setCount(0);
         setDuration(0);
