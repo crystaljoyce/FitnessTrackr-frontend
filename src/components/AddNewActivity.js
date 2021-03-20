@@ -27,7 +27,7 @@ const AddNewActivity = ( {token} ) => {
         console.log('data:  ', data)
         setName('')
         setDescription('')
-        history.push('/activity');
+        history.push('/activities');
 
     } 
     return <>

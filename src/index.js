@@ -12,17 +12,20 @@ import {
     ViewRoutine,
     EditRoutine,
 } from './components'
+import EditActivity from './components/EditActivity';
 
 const URL = 'http://localhost:3000/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});
-    const [ activities, setActivities ] = useState([]);
+    const [activities, setActivities] = useState([]);
     const [token, setToken] = useState('');
     const [routine, setRoutine] = useState({});
     const [name, setName] = useState('');
     const [goal, setGoal] = useState('');
     const [isPublic, setIsPublic] = useState(false);
+    const [activityName, setActivityName] = useState('');
+    const [description, setDescription] = useState('')
     const history = useHistory();
 
     useEffect( () => {
@@ -57,10 +60,10 @@ const App = () => {
         <div className="col-md-8 col-sm-12 text-center header-column">
             <div className='navigation'>
             <Link to='/'>HOME</Link>
-            <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
+            <Link to='/myroutines' id={token ? '' : 'loggedOut-routine'}>MY ROUTINES</Link>
             <Link to='/routines'>ROUTINES</Link>
-            <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
-            <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
+            <Link to='/' id={token ? '' : 'loggedOut-logout'} onClick={handleLogout}>LOGOUT</Link>
+            <Link to='/login' id={!token ? '' : 'loggedOut-login'} >LOGIN</Link>
             <Link to='/activities'>Activities</Link>
             </div>
             </div>
@@ -79,11 +82,14 @@ const App = () => {
         <Route path='/routines'>
             <Routines />
         </Route>
-        <Route path="/Activities">
+        <Route path="/activities">
             {token ? 
             <AddNewActivity token={token} /> : 
                 '' }
             <Activities token={token} setActivities={ setActivities } />
+        </Route>
+        <Route path='/editactivity'> 
+            <EditActivity token={token} setActivityName={setActivityName} activityName={activityName} description={description} />
         </Route>
         <Route path='/myroutines'>
             { token ? 
