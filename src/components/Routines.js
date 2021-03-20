@@ -30,7 +30,7 @@ const Routines = () => {
                 <h3>{name.toUpperCase()}</h3>
                 <div className='view-routine'>
                     <p>{goal}</p>
-                    <p>Created by: {creatorName}</p>
+                    <p>Created by: {creatorName} <hr/></p> 
                     <h4>ACTIVITIES</h4>
                     {activities.map(activity => {
                         const {activityId, count, duration, name, description} = activity;

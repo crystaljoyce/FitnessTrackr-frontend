@@ -36,13 +36,23 @@ const Activity = (props) => {
         }
     })
     const defaultOption = options[0]
+
     console.log('defaultOption: ', defaultOption)
+
+    const onOptionClicked = value => () => {
+        setSelectedOption(value);
+        setIsOpen(false);
+        console.log(selectedOption);
+      };
+
     return <>
     <div className="main-content"> 
         <div className="inner"> 
     { 
     <div className="activityDropdown">
-        <Dropdown options={options} value={defaultOption} onChange={handleSelect} placeholder="Select an activity"/>
+        <div className="field-label"> EXISTING ACTIVITIES: </div> 
+        <Dropdown options={options} value={defaultOption} onChange={handleSelect} 
+        onClick={onOptionClicked(options)} key={Math.random()}/>
         </div>
         
         }

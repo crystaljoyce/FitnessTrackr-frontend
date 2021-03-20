@@ -1,10 +1,10 @@
 import React, { useState , useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
-import Dropdown from 'react-dropdown';
 
 const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const history = useHistory();
     console.log('token: ',token)
     const BASE_URL = 'http://localhost:3000/api/'
 
@@ -27,11 +27,13 @@ const AddNewActivity = ( {token} ) => {
         console.log('data:  ', data)
         setName('')
         setDescription('')
+        history.push('/activity');
+
     } 
     return <>
     <div className="main-content"> 
-        <div className="inner"> 
-    <h2> Add a new activity</h2>
+    <div className="inner"> 
+    <h2> ADD A NEW ACTIVITY</h2>
     <div className="addNewActivity"></div> 
     <form onSubmit={handleSubmit}>
         <input
@@ -48,7 +50,7 @@ const AddNewActivity = ( {token} ) => {
         </input> <br/>
         <button
             type="submit">
-                Add Activity
+                ADD ACTIVITY
             </button>
     </form>
     </div> 
