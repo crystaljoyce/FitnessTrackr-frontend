@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
 import RoutineActivityForm from './RoutineActivityForm';
 
-//do something so the user knows their routine has been deleted
-
 const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic, activities, setActivities}) => {
-    const {id, name, goal, isPublic} = routine;
+    const [routineActivityId, setRoutineActivityId] = useState(null);
+    const [deleteMessage, setDeleteMessage] = useState('');
+    const {id, name, goal, isPublic, activities : routineActivities} = routine;
 
     const handleDelete = async (event) => {
         event.preventDefault();
@@ -21,6 +21,7 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
             }
         });
         const data = await response.json();
+        setDeleteMessage(data ? <div>This routine has been deleted</div> : '')
     }
 
     const handleClick = () => {
@@ -29,17 +30,31 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
         setIsPublic(isPublic);
     }
 
-    if (token) {
+    if (token && !deleteMessage) {
 
         return (<div className='routine' key={id}>
             <h3>{name.toUpperCase()}</h3>
             <p>{goal}</p>
             <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
+
+            {routineActivities.map(routineActivity => {
+                const {activityId, id, count, duration, name, description} = routineActivity;
+
+                return (<div className='activity' key={id}>
+                    <h5>{name.toUpperCase()}</h5>
+                    <p>{description}</p>
+                    <p>Count: {count} minutes</p>
+                    <p>Duration: {duration} reps</p>
+                </div>)
+            })}
+
             <Link to='/editroutine'><button onClick={handleClick}>EDIT</button></Link>
             <button id='danger-button' onClick={handleDelete}>DELETE</button>
 
-            <RoutineActivityForm activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} />
+            <RoutineActivityForm token={token} activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} routineActivityId={routineActivityId} setRoutineActivityId={setRoutineActivityId} />
         </div>)
+    } else if (token && deleteMessage) {
+        return deleteMessage;
     } else {
         return <Redirect to='/' />
     }

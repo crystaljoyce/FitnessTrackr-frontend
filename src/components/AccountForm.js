@@ -29,8 +29,8 @@ const AccountForm = ({type, setToken, setUser}) => {
                     password
                 })
             })
+            setLoginMessage(response.status === 500 ? <div>Username or password is incorrect.</div> : '');
             const data = await response.json();
-            setLoginMessage(data.token ? <div>{data.message}</div> : <div>{data.message}</div>);
 
             const token = data.token ? data.token : '';
             localStorage.setItem('token', token);
