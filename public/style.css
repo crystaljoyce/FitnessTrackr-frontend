@@ -10,27 +10,25 @@
     margin: 0% 20% 0% 20%;
 } */
 
-input,
+/* input,
 textarea,
 select {
     border: 1px solid black;
     margin: 2px;
     padding: 2px;
-}
+} */
 
-button {
+/* button {
     border: 1px solid black;
     margin: 2px;
     padding: 2px;
-}
+} */
 
 .loggedOut {
     display: none;
   }
   
   html {
-    /* min-height: 100%;
-    max-height: fit-content; */
     background-image: url(./images/s.jpg)
   }
   header {

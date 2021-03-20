@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Redirect, useHistory} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 
 const URL = 'http://localhost:3000/api/'
@@ -29,8 +29,6 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
         setName('');
         setGoal('');
         setIsPublic(false);
-        history.push('/myroutines');
-
     }
 
     if (token) {

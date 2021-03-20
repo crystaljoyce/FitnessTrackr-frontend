@@ -31,6 +31,7 @@ const App = () => {
     const [activity, setActivity] = useState({});
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [id, setId] = useState('')
     const history = useHistory();
 
     useEffect( () => {
@@ -91,10 +92,10 @@ const App = () => {
             {token ? 
             <AddNewActivity token={token} /> : 
                 '' }
-            <Activities token={token} setActivities={ setActivities } />
+            <Activities token={token} setActivities={setActivities} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setId={setId} id={id} activity={activity} />
         </Route>
         <Route path='/editactivity'> 
-            <EditActivity token={token} setActivityName={setActivityName} activityName={activityName} description={description} />
+            <EditActivity token={token} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setId={setId} id={id} activity={activity}/>
         </Route>
         <Route path='/myroutines'>
             { token ? 

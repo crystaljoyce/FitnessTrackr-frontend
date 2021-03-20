@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import {Redirect, useHistory} from 'react-router-dom';
 
-
 const URL = 'http://localhost:3000/api/'
 
 const EditActivity = (props) => {
-    const [setActivityName] = useState('')
-    const { token, activityName, description, activity, id } = props; 
+    const { token, activity, setId, setActivityName, setDescription, activities } = props; 
+    const { id, activityName, description } = activity; 
     const history = useHistory();
 
     const handleActivityEdit = async (event) => {
@@ -24,16 +23,14 @@ const EditActivity = (props) => {
             })
         });
         const data = await response.json();
-        console.log('getting information from data ',data)
         setActivityName('');
         setDescription('');
-        history.push('/activity');
+        history.push('/activities');
     }
-
     if (token) {
         return (<div className='edit-activity'>
             <div className="main-content"> 
-        <div className="inner"> 
+            <div className="inner"> 
             <h3>EDIT ACTIVITY</h3>
             <form onSubmit={handleActivityEdit}>
                 <div>
@@ -51,7 +48,7 @@ const EditActivity = (props) => {
             </div> 
         </div>)
     } else {
-        return <Redirect to='/activity' />
+        return <Redirect to='/activities' />
     }
 }
 
