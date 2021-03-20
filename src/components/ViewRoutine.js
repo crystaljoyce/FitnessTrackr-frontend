@@ -32,8 +32,6 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
     if (token) {
 
         return (<div className='routine' key={id}>
-            <div className="main-content"> 
-        <div className="inner"> 
             <h3>{name.toUpperCase()}</h3>
             <p>{goal}</p>
             <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
@@ -41,8 +39,6 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
             <button id='danger-button' onClick={handleDelete}>DELETE</button>
 
             <RoutineActivityForm activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} />
-        </div>
-        </div>
         </div>)
     } else {
         return <Redirect to='/' />

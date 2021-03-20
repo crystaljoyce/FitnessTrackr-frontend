@@ -52,26 +52,15 @@ const App = () => {
     }
 
     return (<>
-        <div className="logo-head"> 
-        <h1 className="logo">Fitness Trackr</h1>
-        </div>
+        <h1>Fitness Trackr</h1>
         <nav>
-            <div className="col-md-8 col-sm-12 text-center header-column">
-            <div className='navigation'>
+            <div className='nav-links'>
             <Link to='/'>HOME</Link>
-            <i className="fa-circle" ></i>
             <Link to='/myroutines' className={user.username ? '' : 'loggedOut'}>MY ROUTINES</Link>
-            <i className="fa fa-circle" aria-hidden="true"></i>
             <Link to='/routines'>ROUTINES</Link>
-            <i className="fa fa-circle" aria-hidden="true"></i>
-            { token 
-            ? <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link> 
-            : 
+            <Link to='/' className={user.username ? '' : 'loggedOut'} onClick={handleLogout}>LOGOUT</Link>
             <Link to='/login' className={!user.username ? '' : 'loggedOut'} >LOGIN</Link>
-            }
-            <i className="fa fa-circle" aria-hidden="true"></i>
             <Link to='/activity'>Activity</Link>
-            </div>
             </div>
         </nav>
 
