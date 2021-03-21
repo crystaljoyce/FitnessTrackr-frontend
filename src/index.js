@@ -61,7 +61,7 @@ const App = () => {
     }
 
     return (<>
-        <div className="logo-head"> 
+        <div id="logo-head"> 
         <h1 className="logo">Fitness Trackr</h1>
         <nav>
         <div className="col-md-8 col-sm-12 text-center header-column">
