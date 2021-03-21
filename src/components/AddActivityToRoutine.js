@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown';
 
-
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 const AddActivityToRoutine = ({token, setSelectedActivity}) => {
     const [activities, setActivities] = useState([]);
     
     const fetchActivity = async () => {
-        const response = await fetch('http://localhost:3000/api/activities', {
+        const response = await fetch(`${URL}activities`, {
             method: 'GET',
             headers: {
             'Content-Type': 'Application/json',
