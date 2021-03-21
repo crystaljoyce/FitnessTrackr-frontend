@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-
-import Activity from './Activity';
+import AddActivityToRoutine from './AddActivityToRoutine';
 const URL = 'http://localhost:3000/api/'
 
-const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, routineActivityId, setRoutineActivityId}) => {
-    const [activityName, setActivityName] = useState('');
+const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, routineActivityId, setRoutineActivityId, setActivityListId, description, setDescription, activityName, setActivityName}) => {
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
     const [selectedActivity, setSelectedActivity] = useState(0);
@@ -31,17 +29,16 @@ const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, ro
         });
         const data = await response.json();
     }
-
+  
     return (<div className='routine-activity-form'>
-        <h3>ADD AN ACTIVITY</h3>
         <form onSubmit={handleSubmit}>
-            <Activity value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} onChange={event => setActivityName(event.target.default)} />
+            <AddActivityToRoutine value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription} onChange={event => setActivityName(event.default)} />
             <div>
-                <div>Count</div>
+                <div>Minutes</div>
                 <input required type='number' value={count} onChange={event => setCount(event.target.value)} ></input>
             </div>
             <div>
-                <div>Duration</div>
+                <div>Reps</div>
                 <input required type='number' value={duration} onChange={event => setDuration(event.target.value)} ></input>
             </div>
             <button type='submit'>ADD ACTIVITY</button>

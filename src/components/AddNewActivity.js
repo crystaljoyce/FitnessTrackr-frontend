@@ -1,10 +1,10 @@
-import React, { useState , useEffect } from 'react';
-import Dropdown from 'react-dropdown';
+import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
 
 const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    console.log('token: ',token)
+    const history = useHistory();
     const BASE_URL = 'http://localhost:3000/api/'
 
     const handleSubmit = async (event) => { 
@@ -22,13 +22,15 @@ const AddNewActivity = ( {token} ) => {
             })
         })
         const data = await response.json(); 
-        console.log(response)
-        console.log('data:  ', data)
         setName('')
         setDescription('')
+        history.push('/activities');
+
     } 
     return <>
-    <h2> Add a new activity</h2>
+    <div className="main-content"> 
+        <div className="inner"> 
+    <h2> ADD A NEW ACTIVITY</h2>
     <div className="addNewActivity"></div> 
     <form onSubmit={handleSubmit}>
         <input
@@ -37,17 +39,19 @@ const AddNewActivity = ( {token} ) => {
             value={name}
             onChange={(event) => setName(event.target.value)}>
         </input> <br/>
-        <textarea
+        <input
             type="text"
             placeholder="description"
             value={description}
             onChange={(event) => setDescription(event.target.value)}>
-        </textarea> <br/>
+        </input> <br/>
         <button
             type="submit">
-                Add Activity
+                ADD ACTIVITY
             </button>
     </form>
+    </div> 
+    </div> 
     </>
 }
 

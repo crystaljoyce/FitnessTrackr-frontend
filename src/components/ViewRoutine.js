@@ -5,7 +5,7 @@ const URL = 'http://localhost:3000/api/'
 
 import RoutineActivityForm from './RoutineActivityForm';
 
-const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic, activities, setActivities}) => {
+const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic, activities, setActivities, setActivityListId, setActivityName, setDescription}) => {
     const [routineActivityId, setRoutineActivityId] = useState(null);
     const [deleteMessage, setDeleteMessage] = useState('');
     const {id, name, goal, isPublic, activities : routineActivities} = routine;
@@ -33,7 +33,10 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
     if (token && !deleteMessage) {
 
         return (<div className='routine' key={id}>
+            <div className="main-content"> 
+            <div className="inner"> 
             <h3>{name.toUpperCase()}</h3>
+            <hr></hr>
             <p>{goal}</p>
             <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
 
@@ -50,8 +53,11 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
 
             <Link to='/editroutine'><button onClick={handleClick}>EDIT</button></Link>
             <button id='danger-button' onClick={handleDelete}>DELETE</button>
+            
 
-            <RoutineActivityForm token={token} activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} routineActivityId={routineActivityId} setRoutineActivityId={setRoutineActivityId} />
+            <RoutineActivityForm token={token} activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} routineActivityId={routineActivityId} setRoutineActivityId={setRoutineActivityId} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription}/>
+        </div> 
+        </div> 
         </div>)
     } else if (token && deleteMessage) {
         return deleteMessage;

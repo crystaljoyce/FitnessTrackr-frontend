@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
 
-const URL = 'http://localhost:3000/api/';
+const URL = 'https://peaceful-sands-84811.herokuapp.com/api/';
 
 const EditRoutineActivity = ({token, activity, count, setCount, duration, setDuration}) => {
     const {name, description, routineActivityId} = activity;
@@ -28,7 +28,9 @@ const EditRoutineActivity = ({token, activity, count, setCount, duration, setDur
     }
 
     if (token && !editMessage) {
-        return (<div className='edit-activity'>
+        return (<div className="main-content"> 
+            <div className="inner"> 
+            <div className='edit-activity'>
             <h3>EDIT ACTIVITY</h3>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -47,7 +49,9 @@ const EditRoutineActivity = ({token, activity, count, setCount, duration, setDur
                 </div>
                 <button type='submit'>EDIT ACTIVITY</button>
             </form>
-        </div>)
+        </div>
+        </div> 
+        </div> )
     } else if (token && editMessage) {
         return editMessage;
     } else {

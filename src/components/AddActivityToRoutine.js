@@ -1,14 +1,11 @@
-import React, { useState , useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown';
 
-const BASE_URL = 'http://localhost:3000/api/'
+const URL = 'http://localhost:3000/api/'
 
-const Activity = (props) => { 
-    // const { token, activities, setActivities } = props; 
-    const [ activities, setActivities ] = useState([]);
-
-    const { token, selectedActivity, setSelectedActivity } = props; 
-    console.log(token)
+const AddActivityToRoutine = ({token,  activityListId, activityName, setActivityName, description, setDescription, setSelectedActivity}) => {
+    const [activities, setActivities] = useState([]);
+    
     const fetchActivity = async () => {
         const response = await fetch('http://localhost:3000/api/activities', {
             method: 'GET',
@@ -20,7 +17,6 @@ const Activity = (props) => {
         const data = await response.json(); 
         setActivities(data)
     }
-
     const handleSelect = (event) => {
         setSelectedActivity(event.value)
     }
@@ -36,14 +32,25 @@ const Activity = (props) => {
         }
     })
     const defaultOption = options[0]
-    console.log('defaultOption: ', defaultOption)
+
     return <>
-    { <div className="activityDropdown">
-        <Dropdown options={options} value={defaultOption} onChange={handleSelect} placeholder="Select an activity"/>
+    <div className="main-content"> 
+        <div className="inner"> 
+    { 
+    <div id="activityDropdown">
+        <div className="field-label"> <b>SELECT AN EXISTING ACTIVIT FROM THE DROPDOWN LIST: <br/> </b> </div> <br/> 
+        <Dropdown 
+            options={options}
+            selected={options} 
+            value={defaultOption} 
+            onChange={handleSelect} 
+            />
+            <br/> 
         </div>
         }
-
+        </div>
+        </div>
     </>;
 }
 
-export default Activity; 
+export default AddActivityToRoutine;
