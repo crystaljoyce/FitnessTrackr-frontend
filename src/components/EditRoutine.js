@@ -6,8 +6,6 @@ const URL = 'http://localhost:3000/api/'
 
 import RoutineActivities from './RoutineActivities';
 
-//deploy back end code to heroku
-
 const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, setIsPublic, activity, setActivity}) => {
     
     const handleSubmit = async (event) => {
