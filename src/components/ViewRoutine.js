@@ -41,7 +41,7 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
             <div>Public? <input className="checkbox" type='checkbox' checked={isPublic} readOnly></input></div>
 
             {routineActivities.map(routineActivity => {
-                const {activityId, id, count, duration, name, description} = routineActivity;
+                const {id, count, duration, name, description} = routineActivity;
 
                 return (<div className='activity' key={id}>
                     <h5>{name.toUpperCase()}</h5>
@@ -53,9 +53,8 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
 
             <Link to='/editroutine'><button onClick={handleClick}>EDIT</button></Link>
             <button id='danger-button' onClick={handleDelete}>DELETE</button>
-            
 
-            <RoutineActivityForm token={token} activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} routineActivityId={routineActivityId} setRoutineActivityId={setRoutineActivityId} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription}/>
+            <RoutineActivityForm routine={routine} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription} activityName={activityName} />
         </div> 
         </div> 
         </div>)

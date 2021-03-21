@@ -57,7 +57,6 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
                 </div> 
                 </div> 
                 </div>)
-
             })}
             </div>
             </div> 

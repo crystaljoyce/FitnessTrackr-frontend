@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const Activities = (props) => {
+const Activities = ({ token, setActivityListId, setActivityName, setDescription }) => {
     const [activitiesList, setActivitiesList] = useState([]);
-    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription }= props; 
 
     useEffect(async () => {
         const response = await fetch(`${URL}activities`, {
@@ -36,10 +35,10 @@ const Activities = (props) => {
                     <h5>{name}</h5>
                     <p>{description}</p>
                     <div hidden='true'>{id} </div> 
-                    <Link to='/editactivity'><button 
-                    // onClick={handleActivityEdit} 
+                    { token 
+                    ? <Link to='/editactivity'><button 
                     >EDIT ACTIVITY</button></Link>
-                        </div> 
+                    : ''}    </div> 
                 </div>
                 <br />
             </div>

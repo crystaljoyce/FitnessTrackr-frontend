@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Redirect} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
@@ -27,8 +27,7 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
             })
         });
         const data = await response.json();
-        await getRoutines()
-        //maybe set some kind of message here with state
+        await getRoutines();
         setName('');
         setGoal('');
         setIsPublic(false);
