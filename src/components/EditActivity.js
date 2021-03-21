@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 const EditActivity = ({token, activityListId, activityName, setActivityName, description, setDescription}) => {
     
