@@ -5,7 +5,7 @@ const URL = 'http://localhost:3000/api/'
 
 const Activities = (props) => {
     const [activitiesList, setActivitiesList] = useState([]);
-    const { token, activityListId, setActivityListId, activityName, setActivityName, description, setDescription }= props; 
+    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription }= props; 
 
     useEffect(async () => {
         const response = await fetch(`${URL}activities`, {
@@ -24,6 +24,9 @@ const Activities = (props) => {
             setActivityListId(id)
             setActivityName(name)
             setDescription(description)
+            console.log('setting id', activityListId)
+            console.log('setting name', activityName)
+            console.log('setting description', description)
 
             return <div className="main-content"> 
             <div className="inner-inner"> 
@@ -33,11 +36,9 @@ const Activities = (props) => {
                     <h5>{name}</h5>
                     <p>{description}</p>
                     <div hidden='true'>{id} </div> 
-                    { token 
-                    ? <Link to='/editactivity'><button 
+                    <Link to='/editactivity'><button 
                     // onClick={handleActivityEdit} 
                     >EDIT ACTIVITY</button></Link>
-                    : '' } 
                         </div> 
                 </div>
                 <br />

@@ -12,7 +12,7 @@ import {
     ViewRoutine,
     EditRoutine,
     ViewRoutineActivity,
-    EditRoutineActivity
+    EditRoutineActivity,
 } from './components'
 import EditActivity from './components/EditActivity';
 
