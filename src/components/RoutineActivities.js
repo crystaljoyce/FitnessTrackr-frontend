@@ -15,7 +15,7 @@ const RoutineActivities = ({routine, activity, setActivity}) => {
         <h3>ACTIVITIES</h3>
             {routine.activities.map(activity => {
                 const {name, description, id, count, duration} = activity;
-
+                <hr> </hr>
                 return <div className='activity' key={id}>
                     <h5>{name.toUpperCase()}</h5>
                     <p>{description}</p>

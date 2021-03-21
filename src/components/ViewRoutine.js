@@ -36,6 +36,7 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
             <div className="main-content"> 
             <div className="inner"> 
             <h3>{name.toUpperCase()}</h3>
+            <hr></hr>
             <p>{goal}</p>
             <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
 
