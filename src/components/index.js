@@ -10,3 +10,4 @@ export {default as RoutineActivityForm} from './RoutineActivityForm';
 export {default as RoutineActivities} from './RoutineActivities';
 export {default as ViewRoutineActivity} from './ViewRoutineActivity';
 export {default as EditRoutineActivity} from './EditRoutineActivity';
+export {default as AddActivityToRoutine} from './AddActivityToRoutine';

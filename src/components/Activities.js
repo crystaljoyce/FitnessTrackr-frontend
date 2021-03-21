@@ -4,8 +4,7 @@ import {Link} from 'react-router-dom';
 const URL = 'http://localhost:3000/api/'
 
 const Activities = (props) => {
-    const [activitiesList, setActivitiesList] = useState([]);
-    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription }= props; 
+    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription, activitiesList, setActivitiesList }= props; 
 
     useEffect(async () => {
         const response = await fetch(`${URL}activities`, {
@@ -17,16 +16,13 @@ const Activities = (props) => {
         const data = await response.json();
         setActivitiesList(data);
     }, [])
-    
+
     return (<div className='activities'>
         {activitiesList.map(activityCJ => {
             const {id, name, description} = activityCJ;
             setActivityListId(id)
             setActivityName(name)
             setDescription(description)
-            console.log('setting id', activityListId)
-            console.log('setting name', activityName)
-            console.log('setting description', description)
 
             return <div className="main-content"> 
             <div className="inner-inner"> 
@@ -35,10 +31,11 @@ const Activities = (props) => {
                 <div className='view-activities'>
                     <h5>{name}</h5>
                     <p>{description}</p>
-                    <div hidden='true'>{id} </div> 
+                    <div hidden={true}>{id} </div> 
                     <Link to='/editactivity'><button 
-                    // onClick={handleActivityEdit} 
-                    >EDIT ACTIVITY</button></Link>
+                    >EDIT ACTIVITY</button>
+                    </Link>
+                    <Link to='/addactivitytoroutine'> <button>ADD TO ROUTINE</button></Link>
                         </div> 
                 </div>
                 <br />

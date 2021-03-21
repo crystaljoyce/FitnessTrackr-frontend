@@ -32,6 +32,7 @@ const App = () => {
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
     const [activityListId, setActivityListId] = useState('');
+    const [activitiesList, setActivitiesList] = useState([]);
     const history = useHistory();
 
     useEffect( () => {
@@ -92,7 +93,7 @@ const App = () => {
             {token ? 
             <AddNewActivity token={token} /> : 
                 '' }
-            <Activities token={token} setActivities={setActivities} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setActivityListId={setActivityListId} activityListId={activityListId} activity={activity} setDescription={setDescription}/>
+            <Activities token={token} setActivities={setActivities} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setActivityListId={setActivityListId} activityListId={activityListId} activity={activity} setDescription={setDescription} setActivitiesList={setActivitiesList} activitiesList={activitiesList}/>
         </Route>
         <Route path='/editactivity'> 
             <EditActivity token={token} setActivityName={setActivityName} activityName={activityName} description={description} setDescription={setDescription} setActivityListId={setActivityListId} activityListId={activityListId} activity={activity} setDescription={setDescription}/>
