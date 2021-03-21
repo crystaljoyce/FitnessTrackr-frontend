@@ -5,7 +5,6 @@ const URL = 'http://localhost:3000/api/'
 
 const Activities = (props) => {
     const [activitiesList, setActivitiesList] = useState([]); 
-
     const { token, setActivityListId, setActivityName, setDescription }= props; 
 
     useEffect(async () => {
@@ -22,7 +21,6 @@ const Activities = (props) => {
     return (<div className='activities' >
         {activitiesList.map((activityCJ, index) => {
             const {id, name, description} = activityCJ;
-
             return <div key={index + 200} className="main-content"> 
             <div key={index + 300}className="inner-inner"> 
             <div key={index + 400}className='activities' >
@@ -33,7 +31,7 @@ const Activities = (props) => {
                     <p key={index +10000}>{description}</p>
                     <Link to='/editactivity' key={index + 100}><button 
                     >EDIT ACTIVITY</button></Link>
-                        </div> 
+                    </div> 
                 </div>
                 <br />
             </div>

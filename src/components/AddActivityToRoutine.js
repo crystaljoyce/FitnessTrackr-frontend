@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown';
 
-
 const URL = 'http://localhost:3000/api/'
 
 const AddActivityToRoutine = ({token,  activityListId, activityName, setActivityName, description, setDescription, setSelectedActivity}) => {
