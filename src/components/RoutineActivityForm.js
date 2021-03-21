@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddActivityToRoutine from './AddActivityToRoutine';
 const URL = 'http://localhost:3000/api/'
 
-const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, routineActivityId, setRoutineActivityId, setActivityListId, description, setDescription, activityName, setActivityName}) => {
+const RoutineActivityForm = ({routine, setActivityListId, setDescription, activityName, setActivityName}) => {
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
     const [selectedActivity, setSelectedActivity] = useState(0);

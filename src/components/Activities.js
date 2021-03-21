@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const Activities = (props) => {
+const Activities = ({ setActivityListId, activityName, setActivityName, setDescription }) => {
     const [activitiesList, setActivitiesList] = useState([]);
-    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription }= props; 
 
     useEffect(async () => {
         const response = await fetch(`${URL}activities`, {
@@ -24,9 +23,6 @@ const Activities = (props) => {
             setActivityListId(id)
             setActivityName(name)
             setDescription(description)
-            console.log('setting id', activityListId)
-            console.log('setting name', activityName)
-            console.log('setting description', description)
 
             return <div className="main-content"> 
             <div className="inner-inner"> 

@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const RoutineActivities = ({routine, activity, setActivity}) => {
+const RoutineActivities = ({routine, setActivity}) => {
 
     return (<div className='routine-activity'>
         <div className="main-content"> 

@@ -3,7 +3,7 @@ import Dropdown from 'react-dropdown';
 
 const URL = 'http://localhost:3000/api/'
 
-const AddActivityToRoutine = ({token,  activityListId, activityName, setActivityName, description, setDescription, setSelectedActivity}) => {
+const AddActivityToRoutine = ({token, setSelectedActivity}) => {
     const [activities, setActivities] = useState([]);
     
     const fetchActivity = async () => {
@@ -25,7 +25,7 @@ const AddActivityToRoutine = ({token,  activityListId, activityName, setActivity
         fetchActivity();
     },[]); 
 
-    const options = activities.map((activity, index) => { 
+    const options = activities.map((activity) => { 
         return {
             value: activity.id,
             label: activity.name

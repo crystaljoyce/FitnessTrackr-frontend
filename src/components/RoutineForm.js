@@ -27,8 +27,7 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
             })
         });
         const data = await response.json();
-        await getRoutines()
-        //maybe set some kind of message here with state
+        await getRoutines();
         setName('');
         setGoal('');
         setIsPublic(false);
