@@ -53,9 +53,8 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
 
             <Link to='/editroutine'><button onClick={handleClick}>EDIT</button></Link>
             <button id='danger-button' onClick={handleDelete}>DELETE</button>
-            
 
-            <RoutineActivityForm token={token} activities={activities} setActivities={setActivities} setRoutine={setRoutine} routine={routine} routineActivityId={routineActivityId} setRoutineActivityId={setRoutineActivityId} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription}/>
+            <RoutineActivityForm routine={routine} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription} activityName={activityName} />
         </div> 
         </div> 
         </div>)

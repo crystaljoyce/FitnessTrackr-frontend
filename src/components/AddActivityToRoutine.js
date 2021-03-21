@@ -32,7 +32,6 @@ const AddActivityToRoutine = ({token, setSelectedActivity}) => {
             label: activity.name
         }
     })
-    // const defaultOption = options[0]
 
     return <>
     <div className="main-content"> 

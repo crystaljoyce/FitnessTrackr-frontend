@@ -48,7 +48,7 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
                 ></input> </div>
                 <button type='submit'>EDIT ROUTINE</button>
             </form>
-            <RoutineActivities routine={routine} activity={activity} setActivity={setActivity} />
+            <RoutineActivities routine={routine} setActivity={setActivity} />
         </div> 
         </div> 
         </div>)
