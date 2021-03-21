@@ -47,7 +47,7 @@ const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic
                 <div><textarea required value={goal} onChange={event => setGoal(event.target.value)} ></textarea></div>
             </div>
             <div>
-                <div>Public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => {setIsPublic(!isPublic)}} ></input></div>
+                <div>Public? <input className='checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => {setIsPublic(!isPublic)}} ></input></div>
             </div>
             <button type='submit'>ADD NEW ROUTINE</button>
         </form>

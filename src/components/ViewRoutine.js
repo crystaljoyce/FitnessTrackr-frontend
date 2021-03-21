@@ -38,7 +38,7 @@ const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic,
             <h3>{name.toUpperCase()}</h3>
             <hr></hr>
             <p>{goal}</p>
-            <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div>
+            <div>Public? <input className="checkbox" type='checkbox' checked={isPublic} readOnly></input></div>
 
             {routineActivities.map(routineActivity => {
                 const {activityId, id, count, duration, name, description} = routineActivity;
