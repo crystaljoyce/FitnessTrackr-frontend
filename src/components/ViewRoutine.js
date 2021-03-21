@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
 
 import RoutineActivityForm from './RoutineActivityForm';
 

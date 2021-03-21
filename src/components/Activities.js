@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
 
 const Activities = ({ token, setActivityListId, setActivityName, setDescription }) => {
     const [activitiesList, setActivitiesList] = useState([]);

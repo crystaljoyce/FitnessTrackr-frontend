@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown';
 
 
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
 
 const AddActivityToRoutine = ({token, setSelectedActivity}) => {
     const [activities, setActivities] = useState([]);

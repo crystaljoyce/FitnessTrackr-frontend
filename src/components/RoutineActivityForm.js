@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import AddActivityToRoutine from './AddActivityToRoutine';
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
 
 const RoutineActivityForm = ({routine, setActivityListId, setDescription, activityName, setActivityName}) => {
     const [count, setCount] = useState(0);
