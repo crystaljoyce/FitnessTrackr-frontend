@@ -1,9 +1,6 @@
 #loggedOut-routine, #loggedOut-logout, #loggedOut-login {
     display: none;
   }
-#opposite-account-form { 
-  color: #0d263f;
-}
 #activityDropdown{
   cursor: pointer;
 }
@@ -53,7 +50,7 @@ img {
 
 }
 a {
-  color: white;
+  color: #0d263f;
   text-decoration:underline;
 }
 p {
