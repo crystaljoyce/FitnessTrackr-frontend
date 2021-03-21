@@ -37,7 +37,7 @@ const MyRoutines = ({token, user, setRoutine, name, setName, goal, setGoal, isPu
 
                 return (<div className='routine' key={id}>
                     <div className="main-content"> 
-                    <div className="inner-inner"> 
+                    <div className="inner"> 
                     <h3>{name.toUpperCase()}</h3>
                     <p>{goal}</p>
                     <div>Public? <input type='checkbox' checked={isPublic} readOnly></input></div> <hr/> 

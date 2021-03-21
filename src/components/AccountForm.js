@@ -79,7 +79,7 @@ const AccountForm = ({type, setToken, setUser}) => {
             </div>
             <button type='submit'>{title}</button>
         </form>
-        <div className='opposite-account-form'><Link to={`/${oppositeType}`}>{oppositeTitle}</Link></div>
+        <div id='opposite-account-form'><Link to={`/${oppositeType}`}>{oppositeTitle}</Link></div>
     </div>
     </div>
     </div>

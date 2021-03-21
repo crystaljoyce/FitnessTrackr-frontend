@@ -6,7 +6,6 @@ const Home = ({user}) => {
         <div className="main-content"> 
         <div className="inner"> 
         <h2>Welcome to Fitness Trackr!</h2>
-        {/* <p> Your place to track all of your fitness routines and activities. </p> */}
         <div className="main-content"> 
         
         {user.username ?
@@ -17,7 +16,6 @@ const Home = ({user}) => {
         
         </div>
         <div className="inner-inner"> 
-        {/* <img src={muslces} alt="muslces"/> */}
         <h2 className="home-page-title"> ROUTINES </h2>
         <h3> CHECK OUT THE ROUTINES PAGE TO UPLOAD YOUR MOST RECENT WORKOUT ROUTINES.</h3>
         <br/> <br/> 

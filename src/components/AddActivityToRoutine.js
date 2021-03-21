@@ -1,20 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 
 
 const URL = 'http://localhost:3000/api/'
 
-import RoutineActivities from './RoutineActivities';
-
-//deploy back end code to heroku
-
 const AddActivityToRoutine = ({token,  activityListId, activityName, setActivityName, description, setDescription, setSelectedActivity}) => {
     const [activities, setActivities] = useState([]);
-    // const { id } = activity; 
-    console.log('edit activity ID: ', activityListId)
-    console.log('edit activity name: ', activityName)
-    console.log('edit activity description: ', description)
     
     const fetchActivity = async () => {
         const response = await fetch('http://localhost:3000/api/activities', {
@@ -43,12 +34,6 @@ const AddActivityToRoutine = ({token,  activityListId, activityName, setActivity
     })
     const defaultOption = options[0]
 
-    // const onOptionClicked = value => () => {
-    //     setSelectedOption(value);
-    //     setSelectedActivity(value)
-
-    //   };
-
     return <>
     <div className="main-content"> 
         <div className="inner"> 
@@ -59,7 +44,6 @@ const AddActivityToRoutine = ({token,  activityListId, activityName, setActivity
             options={options} 
             value={defaultOption} 
             onChange={handleSelect} 
-            // onClick={onOptionClicked(options)} key={Math.random()}
             />
             <br/> 
         </div>

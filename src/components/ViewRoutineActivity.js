@@ -29,14 +29,14 @@ const ViewRoutineActivity = ({token, activity, setActivity, setCount, setDuratio
     if (token && !deleteRoutineActivityMessage) {
         return (
             <div className="main-content"> 
-            <div className="inner"> 
-            <div className='activity' key={id}>
+            <div className="inner-inner"> 
+            <div  key={id}>
             <h5>{name.toUpperCase()}</h5>
             <p>{description}</p>
             <p>Count: {count} minutes</p>
             <p>Duration: {duration} reps</p>
             <Link to='/editroutineactivity'><button onClick={handleClick} >EDIT</button></Link>
-            <button  onClick={handleDelete}>DELETE</button>
+            <button onClick={handleDelete}>DELETE</button>
     </div>
     </div> 
     </div> 

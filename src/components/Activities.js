@@ -4,7 +4,9 @@ import {Link} from 'react-router-dom';
 const URL = 'http://localhost:3000/api/'
 
 const Activities = (props) => {
-    const { activityListId, setActivityListId, activityName, setActivityName, description, setDescription, activitiesList, setActivitiesList }= props; 
+    const [activitiesList, setActivitiesList] = useState([]); 
+
+    const { token, setActivityListId, setActivityName, setDescription }= props; 
 
     useEffect(async () => {
         const response = await fetch(`${URL}activities`, {
@@ -17,25 +19,22 @@ const Activities = (props) => {
         setActivitiesList(data);
     }, [])
 
-    return (<div className='activities'>
-        {activitiesList.map(activityCJ => {
+    return (<div className='activities' >
+        {activitiesList.map((activityCJ, index) => {
             const {id, name, description} = activityCJ;
             setActivityListId(id)
             setActivityName(name)
             setDescription(description)
 
-            return <div className="main-content"> 
-            <div className="inner-inner"> 
-            <div className='activities' key={id}>
-                <h3>{name.toUpperCase()}</h3>
-                <div className='view-activities'>
-                    <h5>{name}</h5>
-                    <p>{description}</p>
-                    <div hidden={true}>{id} </div> 
-                    <Link to='/editactivity'><button 
-                    >EDIT ACTIVITY</button>
-                    </Link>
-                    <Link to='/addactivitytoroutine'> <button>ADD TO ROUTINE</button></Link>
+            return <div key={index + 200} className="main-content"> 
+            <div key={index + 300}className="inner-inner"> 
+            <div key={index + 400}className='activities' >
+                <h3 key={index + 500}>{name.toUpperCase()}</h3>
+                <div key={index + 600} className='view-activities' >
+                    <h5 key={index +1000}>{name}</h5>
+                    <p key={index +10000}>{description}</p>
+                    <Link to='/editactivity' key={index + 100}><button 
+                    >EDIT ACTIVITY</button></Link>
                         </div> 
                 </div>
                 <br />

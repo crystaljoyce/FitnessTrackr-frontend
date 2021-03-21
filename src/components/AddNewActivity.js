@@ -1,11 +1,10 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
 
 const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const history = useHistory();
-    console.log('token: ',token)
     const BASE_URL = 'http://localhost:3000/api/'
 
     const handleSubmit = async (event) => { 
@@ -23,8 +22,6 @@ const AddNewActivity = ( {token} ) => {
             })
         })
         const data = await response.json(); 
-        console.log(response)
-        console.log('data:  ', data)
         setName('')
         setDescription('')
         history.push('/activities');

@@ -10,7 +10,7 @@ const RoutineActivities = ({routine, activity, setActivity}) => {
 
     return (<div className='routine-activity'>
         <div className="main-content"> 
-        <div className="inner"> 
+        <div className="inner-inner"> 
 
         <h3>ACTIVITIES</h3>
             {routine.activities.map(activity => {

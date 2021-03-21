@@ -35,7 +35,7 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
 
         return (<div className='routine-form'>
             <div className="main-content"> 
-            <div className="inner"> 
+            <div className="inner-inner"> 
             <h3>EDIT ROUTINE</h3>
             <form onSubmit={handleSubmit}>
                 <div>
