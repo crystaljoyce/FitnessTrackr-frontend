@@ -24,9 +24,6 @@ const Activities = (props) => {
             setActivityListId(id)
             setActivityName(name)
             setDescription(description)
-            console.log('setting id', activityListId)
-            console.log('setting name', activityName)
-            console.log('setting description', description)
 
             return <div className="main-content"> 
             <div className="inner-inner"> 

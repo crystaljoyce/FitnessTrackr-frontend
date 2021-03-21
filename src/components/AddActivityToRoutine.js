@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown';
 
+
 const URL = 'http://localhost:3000/api/'
 
 const AddActivityToRoutine = ({token,  activityListId, activityName, setActivityName, description, setDescription, setSelectedActivity}) => {
@@ -38,12 +39,12 @@ const AddActivityToRoutine = ({token,  activityListId, activityName, setActivity
         <div className="inner"> 
     { 
     <div id="activityDropdown">
-        <div className="field-label"> <b>SELECT AN EXISTING ACTIVIT FROM THE DROPDOWN LIST: <br/> </b> </div> <br/> 
+        <div className="field-label"> <b>SELECT AN EXISTING ACTIVITY FROM THE DROPDOWN LIST: <br/> </b> </div> <br/> 
         <Dropdown 
             options={options}
             selected={options} 
-            value={defaultOption} 
             onChange={handleSelect} 
+            placeholder={'Select an activity'}
             />
             <br/> 
         </div>
