@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
 
-const URL = 'https://peaceful-sands-84811.herokuapp.com/api/';
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/';
 
 const EditRoutineActivity = ({token, activity, count, setCount, duration, setDuration}) => {
     const {name, description, routineActivityId} = activity;

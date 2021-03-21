@@ -16,7 +16,7 @@ import {
 } from './components'
 import EditActivity from './components/EditActivity';
 
-const URL = 'http://localhost:3000/api/'
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 const App = () => {
     const [user, setUser] = useState({username: ''});

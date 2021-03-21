@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Redirect} from 'react-router-dom';
 
-const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 const RoutineForm = ({token, name, setName, goal, setGoal, isPublic, setIsPublic, getRoutines}) => {
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 const Routines = () => {
     const [routineList, setRoutineList] = useState([]);

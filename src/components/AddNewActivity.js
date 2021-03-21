@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
 
-const URL = 'https://peaceful-sands-84811.herokuapp.com/api/'
+const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');
@@ -12,7 +12,7 @@ const AddNewActivity = ( {token} ) => {
     const handleSubmit = async (event) => { 
         event.preventDefault(); 
         
-        const response = await fetch(`${URL}activities/`, {
+        const response = await fetch(`${URL}activities`, {
             method: 'POST',
             headers: {
             'Content-type': 'Application/json',
