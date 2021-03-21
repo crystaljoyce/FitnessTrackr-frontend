@@ -35,11 +35,11 @@ const RoutineActivityForm = ({routine, setActivityListId, setDescription, activi
             <AddActivityToRoutine value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription} onChange={event => setActivityName(event.default)} />
             <div>
                 <div>Minutes</div>
-                <input required type='number' value={count} onChange={event => setCount(event.target.value)} ></input>
+                <input required type='number' min='0' value={count} onChange={event => setCount(event.target.value)} ></input>
             </div>
             <div>
                 <div>Reps</div>
-                <input required type='number' value={duration} onChange={event => setDuration(event.target.value)} ></input>
+                <input required type='number' min='0' value={duration} onChange={event => setDuration(event.target.value)} ></input>
             </div>
             <button type='submit'>ADD ACTIVITY</button>
         </form>
