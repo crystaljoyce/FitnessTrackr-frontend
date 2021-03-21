@@ -18,7 +18,6 @@ const Routines = () => {
     }, [])
     
     return (<div className='routines'>
-        <h2>ROUTINES</h2>
         {routineList.map(routine => {
             const {id, name, creatorName, goal, activities} = routine;
 

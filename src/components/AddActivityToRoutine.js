@@ -38,7 +38,7 @@ const AddActivityToRoutine = ({token,  activityListId, activityName, setActivity
     <div className="main-content"> 
         <div className="inner"> 
     { 
-    <div className="activityDropdown">
+    <div id="activityDropdown">
         <div className="field-label"> <b>SELECT AN EXISTING ACTIVIT FROM THE DROPDOWN LIST: <br/> </b> </div> <br/> 
         <Dropdown 
             options={options}

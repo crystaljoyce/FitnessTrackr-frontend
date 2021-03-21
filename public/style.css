@@ -5,6 +5,9 @@
 #opposite-account-form { 
   color: #0d263f;
 }
+#activityDropdown{
+  cursor: pointer;
+}
 html {
   background-image: url(./images/s.jpg)
 }
