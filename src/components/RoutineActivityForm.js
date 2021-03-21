@@ -32,7 +32,7 @@ const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, ro
   
     return (<div className='routine-activity-form'>
         <form onSubmit={handleSubmit}>
-            <AddActivityToRoutine value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription} onChange={event => setActivityName(event.default)} />
+            <Activities value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} onChange={event => setActivityName(event.default)} />
             <div>
                 <div>Minutes</div>
                 <input required type='number' value={count} onChange={event => setCount(event.target.value)} ></input>
