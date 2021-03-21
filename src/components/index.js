@@ -7,4 +7,4 @@ export {default as AddNewActivity} from './AddNewActivity';
 export {default as ViewRoutine} from './ViewRoutine';
 export {default as EditRoutine} from './EditRoutine';
 export {default as RoutineActivityForm} from './RoutineActivityForm';
-// export {default as EditActivity} from './EditActivity';
+export {default as EditActivity} from './EditActivity';
