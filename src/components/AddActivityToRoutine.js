@@ -55,3 +55,10 @@ const AddActivityToRoutine = ({token,  activityListId, activityName, setActivity
 }
 
 export default AddActivityToRoutine;
+{/* <Dropdown 
+            options={options}
+            selected={options} 
+            onChange={handleSelect} 
+            placeholder={'Select an activity'}
+            />
+            <br/>  */}
