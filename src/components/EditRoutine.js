@@ -44,7 +44,7 @@ const EditRoutine = ({token, routine, name, setName, goal, setGoal, isPublic, se
                     <div>Goal</div>
                     <input required type='text' value={goal} onChange={event => setGoal(event.target.value)} ></input>
                 </div>
-                <div>Public? <input className='routine-form-checkbox' type='checkbox' checked={isPublic} value={isPublic} onChange={event => setIsPublic(!isPublic)}
+                <div>Public? <input className="checkbox" type='checkbox' checked={isPublic} value={isPublic} onChange={event => setIsPublic(!isPublic)}
                 ></input> </div>
                 <button type='submit'>EDIT ROUTINE</button>
             </form>

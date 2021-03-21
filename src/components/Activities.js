@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const Activities = ({ setActivityListId, activityName, setActivityName, setDescription }) => {
+const Activities = ({ token, setActivityListId, setActivityName, setDescription }) => {
     const [activitiesList, setActivitiesList] = useState([]);
 
     useEffect(async () => {
@@ -32,9 +32,10 @@ const Activities = ({ setActivityListId, activityName, setActivityName, setDescr
                     <h5>{name}</h5>
                     <p>{description}</p>
                     <div hidden='true'>{id} </div> 
-                    <Link to='/editactivity'><button 
-                    // onClick={handleActivityEdit} 
+                    { token 
+                    ? <Link to='/editactivity'><button 
                     >EDIT ACTIVITY</button></Link>
+                    : '' } 
                         </div> 
                 </div>
                 <br />

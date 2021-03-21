@@ -1,8 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-
-//when you post to routines with an activity, you are able to get a routine activity id back look at POST /routine/:routineId/activities return parameters
-//you can only get the routine activity Id if you post to routines with the routineId/activities
 
 const URL = 'http://localhost:3000/api/'
 
@@ -10,7 +7,7 @@ const RoutineActivities = ({routine, setActivity}) => {
 
     return (<div className='routine-activity'>
         <div className="main-content"> 
-        <div className="inner-inner"> 
+        <div className="inner"> 
 
         <h3>ACTIVITIES</h3>
             {routine.activities.map(activity => {
@@ -21,8 +18,8 @@ const RoutineActivities = ({routine, setActivity}) => {
                     <p>{description}</p>
                     <p>Count: {count} minutes</p>
                     <p>Duration: {duration} reps</p>
-                    <br/> <br/> <br/> <br/> 
-                    <Link to='/viewroutineactivity'><button onClick={() => setActivity(activity)}>VIEW ACTIVITY</button></Link>
+                    
+                    <Link to='/viewroutineactivity'><button className='routinebutton' onClick={() => setActivity(activity)}>VIEW ACTIVITY</button></Link>
                 </div>
             })}
         </div>
