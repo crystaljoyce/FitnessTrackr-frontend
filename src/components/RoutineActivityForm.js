@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddActivityToRoutine from './AddActivityToRoutine';
 const URL = 'http://localhost:3000/api/'
 
-const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, routineActivityId, setRoutineActivityId, setActivityListId, description, setDescription, activityName, setActivityName}) => {
+const RoutineActivityForm = ({routine, setActivityListId, setDescription, activityName, setActivityName}) => {
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
     const [selectedActivity, setSelectedActivity] = useState(0);
@@ -35,11 +35,11 @@ const RoutineActivityForm = ({activities, setActivities, setRoutine, routine, ro
             <AddActivityToRoutine value={activityName} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} setActivityListId={setActivityListId} setActivityName={setActivityName} setDescription={setDescription} onChange={event => setActivityName(event.default)} />
             <div>
                 <div>Minutes</div>
-                <input required type='number' value={count} onChange={event => setCount(event.target.value)} ></input>
+                <input required type='number' min='0' value={count} onChange={event => setCount(event.target.value)} ></input>
             </div>
             <div>
                 <div>Reps</div>
-                <input required type='number' value={duration} onChange={event => setDuration(event.target.value)} ></input>
+                <input required type='number' min='0' value={duration} onChange={event => setDuration(event.target.value)} ></input>
             </div>
             <button type='submit'>ADD ACTIVITY</button>
         </form>

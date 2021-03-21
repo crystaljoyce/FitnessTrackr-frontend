@@ -1,12 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-
-//when you post to routines with an activity, you are able to get a routine activity id back look at POST /routine/:routineId/activities return parameters
-//you can only get the routine activity Id if you post to routines with the routineId/activities
 
 const URL = 'http://localhost:3000/api/'
 
-const RoutineActivities = ({routine, activity, setActivity}) => {
+const RoutineActivities = ({routine, setActivity}) => {
 
     return (<div className='routine-activity'>
         <div className="main-content"> 

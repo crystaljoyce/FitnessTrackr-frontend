@@ -41,11 +41,11 @@ const EditRoutineActivity = ({token, activity, count, setCount, duration, setDur
                 </div>
                 <div>
                     <div>Count</div>
-                    <input required type='number' value={count} onChange={event => setCount(event.target.value)} ></input>
+                    <input required type='number' min='0' value={count} onChange={event => setCount(event.target.value)} ></input>
                 </div>
                 <div>
                     <div>Duration</div>
-                    <input required type='number' value={duration} onChange={event => setDuration(event.target.value)} ></input>
+                    <input required type='number' min='0' value={duration} onChange={event => setDuration(event.target.value)} ></input>
                 </div>
                 <button type='submit'>EDIT ACTIVITY</button>
             </form>

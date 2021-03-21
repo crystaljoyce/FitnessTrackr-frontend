@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Redirect} from 'react-router-dom';
-
 
 const URL = 'http://localhost:3000/api/'
 
@@ -46,7 +45,7 @@ const EditActivity = ({token, activityListId, activityName, setActivityName, des
         </div> 
         </div>)
     } else {
-        return <Redirect to='/home' />
+        return <Redirect to='/' />
     }
 }
 

@@ -3,7 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 
 const URL = 'http://localhost:3000/api/'
 
-const ViewRoutineActivity = ({token, activity, setActivity, setCount, setDuration}) => {
+const ViewRoutineActivity = ({token, activity, setCount, setDuration}) => {
     const [deleteRoutineActivityMessage, setDeleteRoutineActivityMessage] = useState('');
     const {id, name, description, routineActivityId, count, duration} = activity;
 
