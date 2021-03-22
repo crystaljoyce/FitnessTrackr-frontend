@@ -5,7 +5,7 @@ const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
 import RoutineActivityForm from './RoutineActivityForm';
 
-const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic, activities, setActivities, setActivityListId, setActivityName, setDescription}) => {
+const ViewRoutine = ({token, routine, setRoutine, setName, setGoal, setIsPublic, activities, activityName, setActivities, setActivityListId, setActivityName, setDescription}) => {
     const [routineActivityId, setRoutineActivityId] = useState(null);
     const [deleteMessage, setDeleteMessage] = useState('');
     const {id, name, goal, isPublic, activities : routineActivities} = routine;
