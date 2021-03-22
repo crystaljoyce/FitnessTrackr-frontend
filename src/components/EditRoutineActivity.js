@@ -24,7 +24,7 @@ const EditRoutineActivity = ({token, activity, count, setCount, duration, setDur
         const data = await response.json();
         setCount(0);
         setDuration(0);
-        setEditMessage(data ? <div>The activity has been updated</div> : '');
+        setEditMessage(data ? <div className="main-content" >The activity has been updated</div> : '');
     }
 
     if (token && !editMessage) {

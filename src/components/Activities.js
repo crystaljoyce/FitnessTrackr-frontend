@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
 
-const Activities = ({ token, setActivityListId, setActivityName, setDescription }) => {
+const Activities = ({ token, activityName, setActivityListId, setActivityName, setDescription }) => {
     const [activitiesList, setActivitiesList] = useState([]);
 
     useEffect(async () => {
