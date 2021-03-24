@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
 
-const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
+const URL = 'https://fittrackr-backend.herokuapp.com/api/'
 
 const AddNewActivity = ( {token} ) => {
     const [name, setName] = useState('');

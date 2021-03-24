@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Dropdown from 'react-dropdown';
 
-const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
+const URL = 'https://fittrackr-backend.herokuapp.com/api/'
 
 const AddActivityToRoutine = ({token, setSelectedActivity}) => {
     const [activities, setActivities] = useState([]);

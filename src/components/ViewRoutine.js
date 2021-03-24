@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 
-const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
+const URL = 'https://fittrackr-backend.herokuapp.com/api/'
 
 import RoutineActivityForm from './RoutineActivityForm';
 

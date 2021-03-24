@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import AddActivityToRoutine from './AddActivityToRoutine';
 
-const URL = 'https://fitnesstrac-kr.herokuapp.com/api/'
+const URL = 'https://fittrackr-backend.herokuapp.com/api/'
 
 const RoutineActivityForm = ({routine, setActivityListId, setDescription, activityName, setActivityName}) => {
     const [count, setCount] = useState(0);
